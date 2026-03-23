@@ -1,0 +1,106 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title ParkEase Battery Hire
+  link(rel='stylesheet' href='CSS/battery.css')
+// Navbar
+header.navbar
+  .logo ParkEase
+  nav
+    .nav-brand
+      h2 ParkEase
+    .nav-links
+      a(href='reports.html') Reports
+      a(href='attendantdashboard.html') Attendant
+      a(href='register.html') Register
+      a(href='battery.html') Battery
+      a(href='tyre-hire.html') Tyre-hire
+      a(href='signout.html') Signout
+      a(href='login.html') Logout
+  .nav-right
+    input(type='text' placeholder='Search batteries...')
+    button.signin Sign In
+    .cart 1
+// Hero Section
+section.hero
+  .hero-text
+    span.tag INDUSTRIAL GRADE
+    h1
+      | Heavy-Duty 
+      br
+      span Industrial
+      br
+      | Battery Hire
+    p
+      | Reliable power solutions for every vehicle type.
+      | High-capacity, long-lasting 3-phase and lead-acid
+      | batteries ready for immediate deployment across Uganda.
+    .hero-buttons
+      button.yellow View Inventory
+      button.outline Get a Quote
+  .hero-image
+    img(src='Assests/battery1.PNG')
+// Browse Section
+section.browse
+  .browse-header
+    h2 Browse Selection
+    .filters
+      button.active All Categories
+      button Traction
+      button Emergency
+  .products
+    // Product 1
+    .card
+      img(src='Assests/battery2.png')
+      h3 UltraVolt X1000
+      p 48V 100Ah &ndash; Industrial Grade
+      span.stock In Stock
+      h4 UGX 170,000/day
+      button.book Book Now
+    // Product 2
+    .card
+      img(src='Assests/battery3.PNG')
+      h3 IronCore Heavy Duty
+      p 24V / 400Ah &ndash; Rugged Use
+      span.low Low Stock
+      h4 UGX 190,000
+      button.book Book Now
+    // Product 3
+    .card
+      img(src='Assests/battery4.PNG')
+      h3 GigaCell 120Ah
+      p 12V 120Ah &ndash; Multi Purpose
+      span.offer Offer
+      h4 UGX 55,000
+      button.book Book Now
+// CTA
+section.cta
+  h2 Need a Custom Fleet Solution?
+  p
+    | We offer discounted rates for long-term rentals and bulk
+    | sales for industrial logistics partners across the region.
+  button Contact Sales Team
+// Footer
+footer
+  .footer-grid
+    div
+      h3 ParkEase
+      p
+        | Powering your performance with premium battery solutions
+        | for over 15 years. Dedicated to keeping Uganda&rsquo;s wheels moving.
+    div
+      h4 SERVICES
+      p Short Term Hire
+      p Long Term Leasing
+      p Battery Maintenance
+      p Fleet Management
+    div
+      h4 VEHICLE TYPES
+      p UPS Systems
+  .footer-bottom
+    p &copy; 2026 ParkEase Solutions Ltd. All rights reserved.
+    div
+      a(href='#') Privacy Policy
+      a(href='#') Terms of Service
+      a(href='#') Cookies

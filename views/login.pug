@@ -1,0 +1,45 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login Page
+  link(rel='stylesheet' href='CSS/login.css')
+.login-container
+  // Logo
+  .logo
+    img(src='Assests/logo.png' alt='ParkEase Logo')
+    h2 ParkEase
+  // Heading
+  h1 Welcome back
+  p Please enter your details to sign in
+  // Login Form
+  form
+    // Username
+    label Username
+    .input-box
+      input(type='text' placeholder='Enter your username')
+    // Password
+    label Password
+    .input-box
+      input(type='password' placeholder='Enter your password')
+      a(href='#') Forgot?
+    // Keep logged in
+    .remember
+      input(type='checkbox')
+      span Keep me logged in
+    // Sign In Button
+    button(type='submit') Sign In &rarr;
+  // Continue With
+  p.divider OR CONTINUE WITH
+  .social-login
+    button Google
+    button iOS
+  // Create Account
+  p.signup
+    | Don&apos;t have an account?
+    a(href='#') Create account
+  // Footer
+  footer
+    a(href='#') Help Center
+    a(href='#') Terms of Service
+    a(href='#') Privacy Policy

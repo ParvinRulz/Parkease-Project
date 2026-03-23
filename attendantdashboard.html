@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParkEase Dashboard</title>
+    <link rel="stylesheet" href="CSS/attendantdashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+
+      <div class="sidebar">
+        <div class="logo">
+          <h2>ParkEase</h2>
+          <p>Smart Management</p>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="reports.html">Reports</a></li>
+            <li class="active">
+              <a href="attendantdashboard.html">Attendant</a>
+            </li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="battery.html">Battery</a></li>
+            <li><a href="tyre-hire.html">Tyre-hire</a></li>
+            <li><a href="signout.html">Signout</a></li>
+            <li><a href="login.html">Logout</a></li>
+          </ul>
+        </nav>
+
+        <div class="profile">
+          <div class="avatar"></div>
+          <div>
+            <p>Parvin Rulz</p>
+            <span>Attendant #04</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main">
+        <!-- Top bar -->
+        <div class="topbar">
+          <input
+            type="text"
+            placeholder="Search vehicle, receipt or plate number..."
+          />
+
+          <div class="shift">
+            <i class="fa-regular fa-clock"></i>
+            SHIFT TIMING: 08:00 AM - 04:00 PM
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="cards">
+          <div class="card">
+            <p class="card-title">TOTAL VEHICLES PARKED</p>
+            <h2>122</h2>
+            <span class="green">+12% Today</span>
+          </div>
+
+          <div class="card">
+            <p class="card-title">TODAY'S TOTAL REVENUE</p>
+            <h2>UGX 8,000,000</h2>
+            <span class="blue">Daily Goal: 80%</span>
+          </div>
+
+          <div class="card">
+            <p class="card-title">AVAILABLE PARKING SLOTS</p>
+            <h2>28 / 150</h2>
+
+            <div class="progress">
+              <div class="progress-bar"></div>
+            </div>
+
+            <div class="progress-text">
+              <span>81% Occupied</span>
+              <span>High Demand</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+
+        <div class="actions">
+          <h3>Quick Actions</h3>
+
+          <div class="buttons">
+            <button class="yellow">
+              <i class="fa-solid fa-arrow-right"></i>
+              Register Arrival
+            </button>
+
+            <button class="dark">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Vehicle Sign-out
+            </button>
+
+            <button class="light">
+              <i class="fa-solid fa-print"></i>
+              Print Daily Summary
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+
+        <div class="table-section">
+          <div class="table-header">
+            <h3>Recent Arrivals</h3>
+            <span>View All Activity</span>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>TIME</th>
+                <th>PLATE NUMBER</th>
+                <th>VEHICLE TYPE</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>10:45 AM</td>
+                <td>UAX 452C</td>
+                <td>SUV</td>
+                <td><span class="status green">Parked</span></td>
+                <td>...</td>
+              </tr>
+
+              <tr>
+                <td>10:32 AM</td>
+                <td>UBG 128Y</td>
+                <td>Motorbike</td>
+                <td><span class="status green">Parked</span></td>
+                <td>...</td>
+              </tr>
+
+              <tr>
+                <td>10:15 AM</td>
+                <td>UAB 900Z</td>
+                <td>Delivery Van</td>
+                <td><span class="status orange">Processing</span></td>
+                <td>...</td>
+              </tr>
+
+              <tr>
+                <td>09:55 AM</td>
+                <td>UBL 334K</td>
+                <td>Sedan</td>
+                <td><span class="status gray">Exited</span></td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

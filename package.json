@@ -1,0 +1,24 @@
+{
+  "name": "frontend-parkease-work",
+  "version": "1.0.0",
+  "description": "ParkEase is a web-based software solution designed to digitize the day-to-day operations of a\r public parking facility that also offers tyre clinic and battery hire services. The system will support accurate record keeping, automated fee calculation, receipt generation, and daily revenue\r reporting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParvinRulz/Frontend-Parkease-work.git"
+  },
+  "keywords": [],
+  "author": "Parvin Ruth Tusiime",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ParvinRulz/Frontend-Parkease-work/issues"
+  },
+  "homepage": "https://github.com/ParvinRulz/Frontend-Parkease-work#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

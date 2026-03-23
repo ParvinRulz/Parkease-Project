@@ -1,0 +1,150 @@
+doctype html
+| PASTE YOUR HTML CODE HERE
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title ParkEase Tire Hire
+  link(rel='stylesheet' href='CSS/tyre-hire.css')
+// NAVBAR
+header.navbar
+  .logo ParkEase
+  nav
+    .nav-brand
+      h2 ParkEase
+    .nav-links
+      a(href='reports.html') Reports
+      a(href='attendantdashboard.html') Attendant
+      a(href='register.html') Register
+      a(href='battery.html') Battery
+      a(href='tyre-hire.html') Tyre-hire
+      a(href='signout.html') Signout
+      a(href='login.html') Logout
+  .nav-right
+    input(type='text' placeholder='Search inventory...')
+    button.signin Sign In
+.container
+  // SIDEBAR
+  aside.sidebar
+    h3 Filters
+    .filter-group
+      p.title Tire Category
+      label
+        input(type='radio' checked='')
+        |  All Inventory
+      label
+        input(type='radio')
+        |  Industrial
+      label
+        input(type='radio')
+        |  Commercial
+      label
+        input(type='radio')
+        |  Agriculture
+    .filter-group
+      p.title Size (Inches)
+      .sizes
+        button 17.5&quot;
+        button 19.5&quot;
+        button.active 22.5&quot;
+        button 24.5&quot;
+    .filter-group
+      p.title Features
+      select
+        option All Season
+        option Off-road
+        option Highway
+    .fleet-card
+      h4 Current Fleet Management
+      p Ensure your heavy-duty vehicles never stop with our on-site replacement service.
+      button Manage Fleet
+      br
+      br
+      img(src='Assests/three-tyre.png' alt='three tires joined together' width='180px')
+  // MAIN CONTENT
+  main.main
+    // HERO
+    section.hero
+      .hero-text
+        p.tag PROFESSIONAL GRADE
+        h1
+          | Premium 
+          br
+          |  Heavy-Duty 
+          br
+          |  Tire Hire
+        p
+          | Reliable replacements and long-term hire 
+          br
+          |  solutions for industrial vehicles
+          | and heavy fleets. 
+          br
+          |  Built for endurance.
+        .hero-buttons
+          button.primary View Inventory
+          br
+          br
+          button.secondary Custom Quote
+      .hero-image
+        img(src='Assests/black-tyre.PNG' alt='tire')
+    // INVENTORY
+    section.inventory
+      h2 Inventory
+      .cards
+        .card
+          img(src='Assests/normal-tyre.png' alt='strong black tire')
+          h4 Titan X-Force 22.5&quot;
+          p Optimized for all-terrain industrial logistics and long haul durability.
+          .price
+            span UGX 170,000
+            button Book Now
+        .card
+          img(src='Assests/middle-tyre.png' alt='middle tyre')
+          h4 Duramax Road King
+          p Precision highway performance for commercial fleets.
+          .price
+            span UGX 145,000
+            button Book Now
+        .card
+          img(src='Assests/heavy-tyre.png' alt='heavy duty tire')
+          h4 Terra-Master 4000
+          p Deep tread technology designed for construction sites.
+          .price
+            span UGX 235,000
+            button Book Now
+    // WHY SECTION
+    section.why
+      .why-left
+        h3 Why Hire from ParkEase?
+        ul
+          li &#x2714; Certified Quality Tires
+          li &#x2714; 24/7 Emergency Support
+      .stats
+        .stat
+          h2 15k+
+          p Tires deployed annually
+        .stat
+          h2 98%
+          p Fleet uptime guaranteed
+// FOOTER
+footer.footer
+  .footer-grid
+    div
+      h3 ParkEase
+      p
+        | The global standard in vehicle maintenance and tire logistics for modern industry.
+    div
+      h4 Services
+      p Emergency Replacement
+      p Long-term Fleet Hire
+      p Smart Parking
+      p Vehicle Maintenance
+    div
+      h4 Resources
+      p Safety Guides
+      p Tire Maintenance
+      p Pricing Calculator
+      p Fleet API
+    div
+      h4 Contact
+      p parvin.parkease@par.com
+      p +256 777 000000
