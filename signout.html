@@ -1,245 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-out and Receipting</title>
-    <link rel="stylesheet" href="CSS/signout.css">
-</head>
-<body>
-    <!-- =========================
-     SIDE NAVIGATION BAR
-     Contains links to all system pages
-========================= -->
-
-<nav class="top-navbar">
-
-    <!-- System title/logo -->
-    <div class="nav-logo">
+    <link rel="stylesheet" href="Public/CSS/signout.css" />
+  </head>
+  <body>
+    <!--SIDE NAVIGATION BAR-->
+    <!--Contains links to all system pages-->
+    <nav class="top-navbar">
+      <!-- System title/logo -->
+      <div class="nav-logo">
         <h2>ParkEase</h2>
-    </div>
+      </div>
 
-    <!-- Navigation links -->
-    <ul class="nav-links">
+      <!-- Navigation links -->
+      <ul class="nav-links">
         <!-- Admin Revenue Reports page -->
         <li>
-            <a href="reports.html">Reports</a>
+          <a href="reports.html">Reports</a>
         </li>
-
 
         <!-- Register vehicles page -->
         <li>
-            <a href="register.html">Register</a>
+          <a href="register.html">Register</a>
         </li>
 
         <!-- Parking attendants page -->
         <li>
-            <a href="attendants.html">Attendants</a>
+          <a href="attendants.html">Attendants</a>
         </li>
 
         <!-- Vehicle sign out page -->
         <li>
-            <a href="signout.html">Sign Out</a>
+          <a href="signout.html">Sign Out</a>
         </li>
 
         <!-- Battery hire services -->
         <li>
-            <a href="battery.html">Battery</a>
+          <a href="battery.html">Battery</a>
         </li>
 
         <!-- Tyre services page -->
         <li>
-            <a href="tyre.html">Tyre</a>
+          <a href="tyre.html">Tyre</a>
         </li>
-
-    </ul>
-
-</nav>
-<br>
-
-
-<input type="text" class="search" placeholder="Search Receipt by ID or Plate Number">
-<div class="user">
-<span>Parvin Rulz</span>
-<span class="role">ATTENDANT</span>
-</div>
-
-</header>
-
-
-<div class="container">
-
-<h1>Vehicle & Arrival Details</h1>
-<p class="subtitle">Review parking details and confirm payment</p>
-
-
-<div class="layout">
-
-<!-- Left Side -->
-
-<div class="left">
-
-<div class="vehicle">
-
-<img src="Assests/truck.png" class="truck">
-
-<div class="vehicle-text">
-
-<h3>John Baptist Ssemuwemba</h3>
-<p>Heavy Truck (T-04)</p>
-
-<div class="times">
-
-<div>
-<span>Arrival Time</span>
-<p>10:24 AM</p>
-</div>
-
-<div>
-<span>Stay Duration</span>
-<p>4h 20m</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="fee">
-
-<span>CALCULATED PARKING FEE</span>
-
-<h2>UGX 17,500</h2>
-
-</div>
-
-
-<div class="receiver">
-
-<h3>Receiver Information</h3>
-
-<div class="form-grid">
-
-<div>
-<label>Full Name</label>
-<input type="text" value="John Baptist Ssemuwemba">
-</div>
-
-<div>
-<label>Phone Number</label>
-<input type="text" value="+256">
-</div>
-
-<div>
-<label>NIN Number</label>
-<input type="text" value="CMD000000000AAA">
-</div>
-
-<div>
-<label>Gender</label>
-<select>
-<option>Male</option>
-<option>Female</option>
-</select>
-</div>
-<div>
-<label>Payment Methods</label>
-<select>
-<option>Mobile Money</option>
-<option>Cash</option>
-</select>
-</div>
-</div>
-
-</div>
-
-
-<div class="buttons">
-
-<button class="confirm">
-Confirm Payment & Sign-out
-</button>
-
-<button class="cancel">
-Cancel
-</button>
-
-</div>
-
-</div>
-
-
-<!-- Right Side Receipt -->
-
-<div class="receipt">
-
-<div class="receipt-logo">
-    <img src="Assests/logo-P.png" alt="parkease-logo" width="100">
-</div>
-
-<h3>PARKEASE</h3>
-
-<p class="address">
-Plot 28 Kampala Central <br>
-+256 789 000000
-</p>
-
-<hr>
-
-<div class="receipt-row">
-<span>Receipt ID</span>
-<span>#PE-2023-49812</span>
-</div>
-
-<div class="receipt-row">
-<span>Date/Time</span>
-<span>Oct 24, 2023 02:44 PM</span>
-</div>
-
-<hr>
-
-<div class="receipt-row">
-<span>Vehicle Reg</span>
-<span>UBA 123X</span>
-</div>
-
-<div class="receipt-row">
-<span>Vehicle Class</span>
-<span>Heavy Truck (T-04)</span>
-</div>
-
-<div class="receipt-row">
-<span>Entry Time</span>
-<span>10:24 AM</span>
-</div>
-
-<div class="receipt-row">
-<span>Stay Duration</span>
-<span>4h 20m</span>
-</div>
-
-<hr>
-
-<div class="total">
-
-<span>Total Amount</span>
-
-<h2>UGX 17,500</h2>
-
-</div>
-
-<div class="qr">
-<img src="Assests/qr.jpg" alt="qr code">
-<p>SCAN TO VERIFY</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
+      </ul>
+    </nav>
+    <br />
+
+    <input
+      type="text"
+      class="search"
+      placeholder="Search Receipt by ID or Plate Number"
+    />
+    <div class="user">
+      <span>Parvin Rulz</span>
+      <span class="role">ATTENDANT</span>
+    </div>
+
+    <div class="container">
+      <h1>Vehicle & Arrival Details</h1>
+      <p class="subtitle">Review parking details and confirm payment</p>
+
+      <div class="layout">
+        <!-- Left Side -->
+
+        <div class="left">
+          <div class="vehicle">
+            <img src="Assests/truck.png" class="truck" />
+
+            <div class="vehicle-text">
+              <h3>John Baptist Ssemuwemba</h3>
+              <p>Heavy Truck (T-04)</p>
+
+              <div class="times">
+                <div>
+                  <span>Arrival Time</span>
+                  <p>10:24 AM</p>
+                </div>
+
+                <div>
+                  <span>Stay Duration</span>
+                  <p>4h 20m</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fee">
+            <span>CALCULATED PARKING FEE</span>
+
+            <h2>UGX 17,500</h2>
+          </div>
+
+          <div class="receiver">
+            <h3>Receiver Information</h3>
+
+            <div class="form-grid">
+              <div>
+                <label>Full Name</label>
+                <input type="text" value="John Baptist Ssemuwemba" />
+              </div>
+
+              <div>
+                <label>Phone Number</label>
+                <input type="text" value="+256" />
+              </div>
+
+              <div>
+                <label>NIN Number</label>
+                <input type="text" value="CMD000000000AAA" />
+              </div>
+
+              <div>
+                <label>Gender</label>
+                <select>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+              <div>
+                <label>Payment Methods</label>
+                <select>
+                  <option>Mobile Money</option>
+                  <option>Cash</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button class="confirm">Confirm Payment & Sign-out</button>
+
+            <button class="cancel">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Right Side Receipt -->
+
+        <div class="receipt">
+          <div class="receipt-logo">
+            <img src="Assests/logo-P.png" alt="parkease-logo" width="100" />
+          </div>
+
+          <h3>PARKEASE</h3>
+
+          <p class="address">
+            Plot 28 Kampala Central <br />
+            +256 789 000000
+          </p>
+
+          <hr />
+
+          <div class="receipt-row">
+            <span>Receipt ID</span>
+            <span>#PE-2023-49812</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>Date/Time</span>
+            <span>Oct 24, 2023 02:44 PM</span>
+          </div>
+
+          <hr />
+
+          <div class="receipt-row">
+            <span>Vehicle Reg</span>
+            <span>UBA 123X</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>Vehicle Class</span>
+            <span>Heavy Truck (T-04)</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>Entry Time</span>
+            <span>10:24 AM</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>Stay Duration</span>
+            <span>4h 20m</span>
+          </div>
+
+          <hr />
+
+          <div class="total">
+            <span>Total Amount</span>
+
+            <h2>UGX 17,500</h2>
+          </div>
+
+          <div class="qr">
+            <img src="Assests/qr.jpg" alt="qr code" />
+            <p>SCAN TO VERIFY</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

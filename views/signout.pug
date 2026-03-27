@@ -4,11 +4,8 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Sign-out and Receipting
   link(rel='stylesheet' href='CSS/signout.css')
-//
-  =========================
-  SIDE NAVIGATION BAR
-  Contains links to all system pages
-  =========================
+// SIDE NAVIGATION BAR
+// Contains links to all system pages
 nav.top-navbar
   // System title/logo
   .nav-logo
@@ -82,10 +79,8 @@ input.search(type='text' placeholder='Search Receipt by ID or Plate Number')
               option Mobile Money
               option Cash
       .buttons
-        button.confirm
-          | Confirm Payment &amp; Sign-out
-        button.cancel
-          | Cancel
+        button.confirm Confirm Payment &amp; Sign-out
+        button.cancel Cancel
     // Right Side Receipt
     .receipt
       .receipt-logo
@@ -94,7 +89,7 @@ input.search(type='text' placeholder='Search Receipt by ID or Plate Number')
       p.address
         | Plot 28 Kampala Central 
         br
-        | +256 789 000000
+        |             +256 789 000000
       hr
       .receipt-row
         span Receipt ID
