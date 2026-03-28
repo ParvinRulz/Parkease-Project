@@ -130,6 +130,9 @@ TABLE SECTION
 
 .table-header input{
     padding:5px;
+    background-color:#0f1c3f;
+    border-radius:8px;
+    color:white;
 }
 
 

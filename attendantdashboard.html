@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ParkEase Attendant Dashboard</title>
+    <title>ParkVille Attendant Dashboard</title>
     <link rel="stylesheet" href="Public/CSS/attendantdashboard.css" />
     <link
       rel="stylesheet"
@@ -12,36 +12,46 @@
   </head>
 
   <body>
-    <div class="container">
-      <!-- Sidebar -->
-
-      <div class="sidebar">
-        <div class="logo">
-          <h2>ParkEase</h2>
-          <p>Smart Management</p>
-        </div>
-        <nav>
-          <ul class="menu">
-            <li><a href="reports.html">Reports</a></li>
-            <li class="active">
-              <a href="attendantdashboard.html">Attendant</a>
-            </li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="battery.html">Battery</a></li>
-            <li><a href="tyre-hire.html">Tyre-hire</a></li>
-            <li><a href="signout.html">Signout</a></li>
-            <li><a href="login.html">Logout</a></li>
-          </ul>
-        </nav>
-
-        <div class="profile">
-          <div class="avatar"></div>
-          <div>
-            <p>Parvin Rulz</p>
-            <span>Attendant #04</span>
-          </div>
-        </div>
+    
+      <nav class="top-navbar">
+      <!-- System title/logo -->
+      <div class="nav-logo">
+        <h2>ParkVille</h2>
       </div>
+
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <!-- Admin Revenue Reports page -->
+        <li>
+          <a href="reports.html">Reports</a>
+        </li>
+
+        <!-- Register vehicles page -->
+        <li>
+          <a href="register.html">Register</a>
+        </li>
+
+        <!-- Parking attendants page -->
+        <li>
+          <a href="attendants.html">Attendants</a>
+        </li>
+
+        <!-- Vehicle sign out page -->
+        <li>
+          <a href="signout.html">Sign Out</a>
+        </li>
+
+        <!-- Battery hire services -->
+        <li>
+          <a href="battery.html">Battery</a>
+        </li>
+
+        <!-- Tyre services page -->
+        <li>
+          <a href="tyre.html">Tyre</a>
+        </li>
+      </ul>
+    </nav>
 
       <!-- Main Content -->
       <div class="main">
@@ -62,18 +72,21 @@
         <div class="cards">
           <div class="card">
             <p class="card-title">TOTAL VEHICLES PARKED</p>
+            <img src="/Assests/car.jpeg" alt="car" width="150">
             <h2>122</h2>
             <span class="green">+12% Today</span>
           </div>
 
           <div class="card">
             <p class="card-title">TODAY'S TOTAL REVENUE</p>
+            <img src="/Assests/money.jpg" alt="money" width="180">
             <h2>UGX 8,000,000</h2>
             <span class="blue">Daily Goal: 80%</span>
           </div>
 
           <div class="card">
             <p class="card-title">AVAILABLE PARKING SLOTS</p>
+            <img src="/Assests/parkinglot.jpg" alt="money" width="180">
             <h2>28 / 150</h2>
 
             <div class="progress">
@@ -165,6 +178,16 @@
           </table>
         </div>
       </div>
+    </div>
+
+    <!-- =========================
+    FOOTER
+    ========================= -->
+      <footer class="footer">
+        <h2>ADMIN CONTROL PANEL</h2>
+
+        <p>© 2026 ParkVille Smart Systems</p>
+      </footer>
     </div>
   </body>
 </html>

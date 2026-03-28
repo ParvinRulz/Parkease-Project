@@ -2,114 +2,121 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title ParkEase Attendant Dashboard
+  title ParkVille Attendant Dashboard
   link(rel='stylesheet' href='Public/CSS/attendantdashboard.css')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css')
-.container
-  // Sidebar
-  .sidebar
-    .logo
-      h2 ParkEase
-      p Smart Management
-    nav
-      ul.menu
-        li
-          a(href='reports.html') Reports
-        li.active
-          a(href='attendantdashboard.html') Attendant
-        li
-          a(href='register.html') Register
-        li
-          a(href='battery.html') Battery
-        li
-          a(href='tyre-hire.html') Tyre-hire
-        li
-          a(href='signout.html') Signout
-        li
-          a(href='login.html') Logout
-    .profile
-      .avatar
-      div
-        p Parvin Rulz
-        span Attendant #04
-  // Main Content
-  .main
-    // Top bar
-    .topbar
-      input(type='text' placeholder='Search vehicle, receipt or plate number...')
-      .shift
-        i.fa-regular.fa-clock
-        |             SHIFT TIMING: 08:00 AM - 04:00 PM
-    // Stats
-    .cards
-      .card
-        p.card-title TOTAL VEHICLES PARKED
-        h2 122
-        span.green +12% Today
-      .card
-        p.card-title TODAY&apos;S TOTAL REVENUE
-        h2 UGX 8,000,000
-        span.blue Daily Goal: 80%
-      .card
-        p.card-title AVAILABLE PARKING SLOTS
-        h2 28 / 150
-        .progress
-          .progress-bar
-        .progress-text
-          span 81% Occupied
-          span High Demand
-    // Quick Actions
-    .actions
-      h3 Quick Actions
-      .buttons
-        button.yellow
-          i.fa-solid.fa-arrow-right
-          |               Register Arrival
-        button.dark
-          i.fa-solid.fa-arrow-right-from-bracket
-          |               Vehicle Sign-out
-        button.light
-          i.fa-solid.fa-print
-          |               Print Daily Summary
-    // Table
-    .table-section
-      .table-header
-        h3 Recent Arrivals
-        span View All Activity
-      table
-        thead
-          tr
-            th TIME
-            th PLATE NUMBER
-            th VEHICLE TYPE
-            th STATUS
-            th ACTIONS
-        tbody
-          tr
-            td 10:45 AM
-            td UAX 452C
-            td SUV
-            td
-              span.status.green Parked
-            td ...
-          tr
-            td 10:32 AM
-            td UBG 128Y
-            td Motorbike
-            td
-              span.status.green Parked
-            td ...
-          tr
-            td 10:15 AM
-            td UAB 900Z
-            td Delivery Van
-            td
-              span.status.orange Processing
-            td ...
-          tr
-            td 09:55 AM
-            td UBL 334K
-            td Sedan
-            td
-              span.status.gray Exited
-            td ...
+nav.top-navbar
+  // System title/logo
+  .nav-logo
+    h2 ParkVille
+  // Navigation links
+  ul.nav-links
+    // Admin Revenue Reports page
+    li
+      a(href='reports.html') Reports
+    // Register vehicles page
+    li
+      a(href='register.html') Register
+    // Parking attendants page
+    li
+      a(href='attendants.html') Attendants
+    // Vehicle sign out page
+    li
+      a(href='signout.html') Sign Out
+    // Battery hire services
+    li
+      a(href='battery.html') Battery
+    // Tyre services page
+    li
+      a(href='tyre.html') Tyre
+// Main Content
+.main
+  // Top bar
+  .topbar
+    input(type='text' placeholder='Search vehicle, receipt or plate number...')
+    .shift
+      i.fa-regular.fa-clock
+      |             SHIFT TIMING: 08:00 AM - 04:00 PM
+  // Stats
+  .cards
+    .card
+      p.card-title TOTAL VEHICLES PARKED
+      img(src='/Assests/car.jpeg' alt='car' width='150')
+      h2 122
+      span.green +12% Today
+    .card
+      p.card-title TODAY&apos;S TOTAL REVENUE
+      img(src='/Assests/money.jpg' alt='money' width='180')
+      h2 UGX 8,000,000
+      span.blue Daily Goal: 80%
+    .card
+      p.card-title AVAILABLE PARKING SLOTS
+      img(src='/Assests/parkinglot.jpg' alt='money' width='180')
+      h2 28 / 150
+      .progress
+        .progress-bar
+      .progress-text
+        span 81% Occupied
+        span High Demand
+  // Quick Actions
+  .actions
+    h3 Quick Actions
+    .buttons
+      button.yellow
+        i.fa-solid.fa-arrow-right
+        |               Register Arrival
+      button.dark
+        i.fa-solid.fa-arrow-right-from-bracket
+        |               Vehicle Sign-out
+      button.light
+        i.fa-solid.fa-print
+        |               Print Daily Summary
+  // Table
+  .table-section
+    .table-header
+      h3 Recent Arrivals
+      span View All Activity
+    table
+      thead
+        tr
+          th TIME
+          th PLATE NUMBER
+          th VEHICLE TYPE
+          th STATUS
+          th ACTIONS
+      tbody
+        tr
+          td 10:45 AM
+          td UAX 452C
+          td SUV
+          td
+            span.status.green Parked
+          td ...
+        tr
+          td 10:32 AM
+          td UBG 128Y
+          td Motorbike
+          td
+            span.status.green Parked
+          td ...
+        tr
+          td 10:15 AM
+          td UAB 900Z
+          td Delivery Van
+          td
+            span.status.orange Processing
+          td ...
+        tr
+          td 09:55 AM
+          td UBL 334K
+          td Sedan
+          td
+            span.status.gray Exited
+          td ...
+//
+  =========================
+  FOOTER
+  =========================
+footer.footer
+  h2 ADMIN CONTROL PANEL
+  p &copy; 2026 ParkVille Smart Systems
