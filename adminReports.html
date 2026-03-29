@@ -2,229 +2,184 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <!-- Makes the page responsive on mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Page title -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ParkVille Daily Reports</title>
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="Public/CSS/adminReports.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
-  <body>
-    <!-- =========================
-     NAVIGATION BAR
-     Contains links to all system pages
-========================= -->
+  <body class="bg-light">
 
-    <nav class="top-navbar">
-      <!-- System title/logo -->
-      <div class="nav-logo">
-        <h2>ParkVille</h2>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <a class="navbar-brand fw-bold" href="#">ParkVille</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Attendants</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sign Out</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Battery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tyre</a></li>
+        </ul>
       </div>
-
-      <!-- Navigation links -->
-      <ul class="nav-links">
-        <!-- Admin Revenue Reports page -->
-        <li>
-          <a href="reports.html">Reports</a>
-        </li>
-
-        <!-- Register vehicles page -->
-        <li>
-          <a href="register.html">Register</a>
-        </li>
-
-        <!-- Parking attendants page -->
-        <li>
-          <a href="attendants.html">Attendants</a>
-        </li>
-
-        <!-- Vehicle sign out page -->
-        <li>
-          <a href="signout.html">Sign Out</a>
-        </li>
-
-        <!-- Battery hire services -->
-        <li>
-          <a href="battery.html">Battery</a>
-        </li>
-
-        <!-- Tyre services page -->
-        <li>
-          <a href="tyre.html">Tyre</a>
-        </li>
-      </ul>
     </nav>
 
-    <!-- =========================
-MAIN DASHBOARD CONTAINER
-Wraps the entire page content
-========================= -->
-    <div class="container">
-      <!-- =========================
-    HEADER SECTION
-    Logo + action buttons
-    ========================= -->
-      <header class="header">
-        <!-- Left side logo/title -->
-        <div class="logo">
-          <img src="Assests/logo-P.png" alt="parkease-logo" width="100" />
-          <h2>PARKVILLE DAILY REPORTS</h2>
+    <!-- MAIN CONTAINER -->
+    <div class="container py-4">
+
+      <!-- HEADER -->
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <img src="Assests/logo-P.png" width="80">
+          <h4 class="mb-0">PARKVILLE DAILY REPORTS</h4>
         </div>
 
-        <!-- Right side buttons -->
-        <div class="header-buttons">
-          <button class="btn yellow">Download PDF</button>
-          <button class="btn">Export CSV</button>
+        <div class="d-flex gap-2">
+          <button class="btn btn-warning">Download PDF</button>
+          <button class="btn btn-secondary">Export CSV</button>
         </div>
-      </header>
-
-      <!-- =========================
-    REVENUE OVERVIEW SECTION
-    Shows the 3 revenue cards
-    ========================= -->
-      <section class="revenue-overview">
-        <h3>Revenue Overview</h3>
-
-        <!-- Revenue cards container -->
-        <div class="cards">
-          <!-- Parking revenue card -->
-          <div class="card">
-            <p class="card-title">PARKING REVENUE</p>
-            <img src="Assests/cash.jpg" alt="money picture" width="150" />
-            <h2>UGX 4,600,000</h2>
-            <span class="increase">▲ +12.5%</span>
-          </div>
-
-          <!-- Tyre clinic card -->
-          <div class="card">
-            <p class="card-title">TYRE HIRE</p>
-            <img src="Assests/yellowtyre.PNG" alt="a tyre" width="150" />
-            <h2>UGX 1,650,000</h2>
-            <span class="increase">▲ +5.2%</span>
-          </div>
-
-          <!-- Battery hire card -->
-          <div class="card">
-            <p class="card-title">BATTERY HIRE</p>
-            <img
-              src="Assests/yellow-bluebattery.PNG"
-              alt="a type of battery"
-              width="150"
-            />
-            <h2>UGX 720,000</h2>
-            <span class="increase">▲ +2.1%</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================
-    REPORT DAY SELECTOR
-    ========================= -->
-      <div class="date-selector">
-        <button class="arrow">◀</button>
-
-        <span>March 25, 2026</span>
-
-        <button class="arrow">▶</button>
       </div>
 
-      <!-- =========================
-    VEHICLE TABLE SECTION
-    ========================= -->
-      <section class="table-section">
-        <!-- Table title + search -->
-        <div class="table-header">
-          <h3>All Signed-out Vehicles</h3>
-          <!-- Search box -->
-          <input type="text" placeholder="Search plates..." />
+      <!-- REVENUE OVERVIEW -->
+      <h5 class="mb-3">Revenue Overview</h5>
+
+      <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <p class="text-muted">PARKING REVENUE</p>
+            <img src="Assests/cash.jpg" class="img-fluid mb-2" style="max-height:120px;">
+            <h4>UGX 4,600,000</h4>
+            <span class="text-success">▲ +12.5%</span>
+          </div>
         </div>
 
-        <!-- =========================
-        TABLE
-        ========================= -->
-        <table>
-          <!-- Table headings -->
-          <thead>
-            <tr>
-              <th>RECEIPT #</th>
-              <th>PLATE #</th>
-              <th>IN-TIME</th>
-              <th>OUT-TIME</th>
-              <th>DURATION</th>
-              <th>FEE</th>
-            </tr>
-          </thead>
-
-          <!-- Table data -->
-          <tbody>
-            <tr>
-              <td>#PE-98231</td>
-              <td>UAA 214A</td>
-              <td>08:15 AM</td>
-              <td>05:30 PM</td>
-              <td>9h 15m</td>
-              <td>UGX 25,000</td>
-            </tr>
-
-            <tr>
-              <td>#PE-98232</td>
-              <td>UBB 673B</td>
-              <td>09:00 AM</td>
-              <td>02:15 PM</td>
-              <td>5h 15m</td>
-              <td>UGX 15,000</td>
-            </tr>
-
-            <tr>
-              <td>#PE-98233</td>
-              <td>UAX 982X</td>
-              <td>10:30 AM</td>
-              <td>06:45 PM</td>
-              <td>8h 15m</td>
-              <td>UGX 22,000</td>
-            </tr>
-
-            <tr>
-              <td>#PE-98234</td>
-              <td>UAW 119W</td>
-              <td>07:45 AM</td>
-              <td>11:00 AM</td>
-              <td>3h 15m</td>
-              <td>UGX 10,000</td>
-            </tr>
-
-            <tr>
-              <td>#PE-98235</td>
-              <td>UAZ 541Z</td>
-              <td>11:15 AM</td>
-              <td>08:00 PM</td>
-              <td>8h 45m</td>
-              <td>UGX 24,000</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- =========================
-        TABLE FOOTER (TOTAL)
-        ========================= -->
-        <div class="table-footer">
-          <span>DAILY GRAND TOTAL :</span>
-          <h2>UGX 6,790,000</h2>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <p class="text-muted">TYRE HIRE</p>
+            <img src="Assests/yellowtyre.PNG" class="img-fluid mb-2" style="max-height:120px;">
+            <h4>UGX 1,650,000</h4>
+            <span class="text-success">▲ +5.2%</span>
+          </div>
         </div>
-      </section>
 
-      <!-- =========================
-    FOOTER
-    ========================= -->
-      <footer class="footer">
-        <h2>ADMIN CONTROL PANEL</h2>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <p class="text-muted">BATTERY HIRE</p>
+            <img src="Assests/yellow-bluebattery.PNG" class="img-fluid mb-2" style="max-height:120px;">
+            <h4>UGX 720,000</h4>
+            <span class="text-success">▲ +2.1%</span>
+          </div>
+        </div>
 
-        <p>© 2026 ParkVille Smart Systems</p>
-      </footer>
+      </div>
+
+      <!-- DATE SELECTOR -->
+      <div class="d-flex justify-content-center align-items-center gap-3 mb-4">
+        <button class="btn btn-outline-dark">◀</button>
+        <span class="fw-semibold">March 25, 2026</span>
+        <button class="btn btn-outline-dark">▶</button>
+      </div>
+
+      <!-- TABLE SECTION -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h5 class="mb-0">All Signed-out Vehicles</h5>
+            <input type="text" class="form-control w-auto" placeholder="Search plates...">
+          </div>
+
+          <!-- TABLE -->
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th>RECEIPT #</th>
+                  <th>PLATE #</th>
+                  <th>IN-TIME</th>
+                  <th>OUT-TIME</th>
+                  <th>DURATION</th>
+                  <th>FEE</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>#PV-98231</td>
+                  <td>UAA 214A</td>
+                  <td>08:15 AM</td>
+                  <td>05:30 PM</td>
+                  <td>9h 15m</td>
+                  <td>UGX 25,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98232</td>
+                  <td>UBB 673B</td>
+                  <td>09:00 AM</td>
+                  <td>02:15 PM</td>
+                  <td>5h 15m</td>
+                  <td>UGX 15,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98233</td>
+                  <td>UAX 982X</td>
+                  <td>10:30 AM</td>
+                  <td>06:45 PM</td>
+                  <td>8h 15m</td>
+                  <td>UGX 22,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98234</td>
+                  <td>UAW 119W</td>
+                  <td>07:45 AM</td>
+                  <td>11:00 AM</td>
+                  <td>3h 15m</td>
+                  <td>UGX 10,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98235</td>
+                  <td>UAZ 541Z</td>
+                  <td>11:15 AM</td>
+                  <td>08:00 PM</td>
+                  <td>8h 45m</td>
+                  <td>UGX 24,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- FOOTER -->
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <span class="fw-semibold">DAILY GRAND TOTAL :</span>
+            <h4 class="mb-0">UGX 6,790,000</h4>
+          </div>
+
+        </div>
+      </div>
+
     </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+      <h6 class="mb-1">ADMIN CONTROL PANEL</h6>
+      <small>© 2026 ParkVille Smart Systems</small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>

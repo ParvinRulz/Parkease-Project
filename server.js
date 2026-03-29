@@ -7,6 +7,10 @@ const mongoose = require("mongoose");
 const indexRoutes = require("./Routes/indexRoutes");
 const authRoutes = require("./Routes/authRoutes");
 const dashboardRoutes = require("./Routes/dashboardRoutes");
+const registrationRoutes = require("./Routes/registrationRoutes");
+const receiptRoutes = require("./Routes/receiptRoutes");
+const batteryRoutes = require("./Routes/batteryRoutes");
+const tyreRoutes = require("./Routes/tyreRoutes");
 
 //2.Instantiations
 const app = express();
@@ -35,6 +39,10 @@ app.set("views", path.join(__dirname, "views")); //specifies the views directory
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 app.use("./", dashboardRoutes);
+app.use("./", registrationRoutes);
+app.use("./", receiptRoutes);
+app.use("/", batteryRoutes);
+app.use("./", tyreRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 
 // This will always be the last endpoint in this file

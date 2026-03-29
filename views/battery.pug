@@ -2,105 +2,123 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title ParkEase Battery Hire
-  link(rel='stylesheet' href='CSS/battery.css')
+  title ParkVille Battery Hire
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
 // Navbar
-header.navbar
-  .logo ParkEase
-  nav
-    .nav-brand
-      h2 ParkEase
-    .nav-links
-      a(href='reports.html') Reports
-      a(href='attendantdashboard.html') Attendant
-      a(href='register.html') Register
-      a(href='battery.html') Battery
-      a(href='tyre-hire.html') Tyre-hire
-      a(href='signout.html') Signout
-      a(href='login.html') Logout
-  .nav-right
-    input(type='text' placeholder='Search batteries...')
-    button.signin Sign In
-    .cart 1
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.px-3
+  a.navbar-brand(href='#')
+    h2 ParkVille
+  button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.me-auto
+      li.nav-item
+        a.nav-link(href='reports.html') Reports
+      li.nav-item
+        a.nav-link(href='attendantdashboard.html') Attendant
+      li.nav-item
+        a.nav-link(href='register.html') Register
+      li.nav-item
+        a.nav-link.active(href='battery.html') Battery
+      li.nav-item
+        a.nav-link(href='tyre-hire.html') Tyre-hire
+      li.nav-item
+        a.nav-link(href='signout.html') Signout
+      li.nav-item
+        a.nav-link(href='login.html') Logout
+    form.d-flex
+      input.form-control.me-2(type='search' placeholder='Search batteries...')
+      button.btn.btn-outline-primary(type='submit') Sign In
+    .ms-3.badge.bg-secondary.p-2.rounded-circle 1
 // Hero Section
-section.hero
-  .hero-text
-    span.tag INDUSTRIAL GRADE
-    h1
-      | Heavy-Duty 
-      br
-      span Industrial
-      br
-      |           Battery Hire
-    p
-      | Reliable power solutions for every vehicle type. High-capacity,
-      | long-lasting 3-phase and lead-acid batteries ready for immediate
-      | deployment across Uganda.
-    .hero-buttons
-      button.yellow View Inventory
-      button.outline Get a Quote
-  .hero-image
-    img(src='Assests/battery1.PNG')
+section.container.my-5
+  .row.align-items-center
+    .col-lg-6
+      span.badge.bg-warning.text-dark.mb-2 INDUSTRIAL GRADE
+      h1
+        | Heavy-Duty 
+        br
+        span Industrial
+        br
+        |             Battery Hire
+      p.text-muted
+        | Reliable power solutions for every vehicle type. High-capacity,
+        | long-lasting 3-phase and lead-acid batteries ready for immediate
+        | deployment across Uganda.
+      .d-flex.gap-2
+        button.btn.btn-warning View Inventory
+        button.btn.btn-outline-dark Get a Quote
+    .col-lg-6.text-center
+      img.img-fluid(src='Assests/battery1.PNG' alt='Battery Hero')
 // Browse Section
-section.browse
-  .browse-header
+section.container.my-5
+  .d-flex.justify-content-between.align-items-center.mb-3
     h2 Browse Selection
-    .filters
-      button.active All Categories
-      button Traction
-      button Emergency
-  .products
+    .btn-group
+      button.btn.btn-primary.active All Categories
+      button.btn.btn-outline-primary Traction
+      button.btn.btn-outline-primary Emergency
+  .row.g-4
     // Product 1
-    .card
-      img(src='Assests/battery2.png')
-      h3 UltraVolt X1000
-      p 48V 100Ah &ndash; Industrial Grade
-      span.stock In Stock
-      h4 UGX 170,000/day
-      button.book Book Now
+    .col-md-4
+      .card.h-100.text-center.shadow-sm
+        img.card-img-top(src='Assests/battery2.png' alt='UltraVolt X1000')
+        .card-body
+          h5.card-title UltraVolt X1000
+          p.card-text 48V 100Ah &ndash; Industrial Grade
+          span.badge.bg-success.mb-2 In Stock
+          h4 UGX 170,000/day
+          button.btn.btn-warning.mt-2 Book Now
     // Product 2
-    .card
-      img(src='Assests/battery3.PNG')
-      h3 IronCore Heavy Duty
-      p 24V / 400Ah &ndash; Rugged Use
-      span.low Low Stock
-      h4 UGX 190,000
-      button.book Book Now
+    .col-md-4
+      .card.h-100.text-center.shadow-sm
+        img.card-img-top(src='Assests/battery3.PNG' alt='IronCore Heavy Duty')
+        .card-body
+          h5.card-title IronCore Heavy Duty
+          p.card-text 24V / 400Ah &ndash; Rugged Use
+          span.badge.bg-warning.mb-2 Low Stock
+          h4 UGX 190,000
+          button.btn.btn-warning.mt-2 Book Now
     // Product 3
-    .card
-      img(src='Assests/battery4.PNG')
-      h3 GigaCell 120Ah
-      p 12V 120Ah &ndash; Multi Purpose
-      span.offer Offer
-      h4 UGX 55,000
-      button.book Book Now
+    .col-md-4
+      .card.h-100.text-center.shadow-sm
+        img.card-img-top(src='Assests/battery4.PNG' alt='GigaCell 120Ah')
+        .card-body
+          h5.card-title GigaCell 120Ah
+          p.card-text 12V 120Ah &ndash; Multi Purpose
+          span.badge.bg-danger.mb-2 Offer
+          h4 UGX 55,000
+          button.btn.btn-warning.mt-2 Book Now
 // CTA
-section.cta
+section.container.text-center.my-5
   h2 Need a Custom Fleet Solution?
-  p
+  p.text-muted.mb-3
     | We offer discounted rates for long-term rentals and bulk sales for
     | industrial logistics partners across the region.
-  button Contact Sales Team
+  button.btn.btn-warning Contact Sales Team
 // Footer
-footer
-  .footer-grid
-    div
-      h3 ParkEase
-      p
-        | Powering your performance with premium battery solutions for over 15
-        | years. Dedicated to keeping Uganda&rsquo;s wheels moving.
-    div
-      h4 SERVICES
-      p Short Term Hire
-      p Long Term Leasing
-      p Battery Maintenance
-      p Fleet Management
-    div
-      h4 VEHICLE TYPES
-      p UPS Systems
-  .footer-bottom
-    p &copy; 2026 ParkEase Solutions Ltd. All rights reserved.
-    div
-      a(href='#') Privacy Policy
-      a(href='#') Terms of Service
-      a(href='#') Cookies
+footer.bg-light.mt-5.pt-4.pb-3
+  .container
+    .row.mb-3
+      .col-md-4
+        h5 ParkVille
+        p.text-muted
+          | Powering your performance with premium battery solutions. Dedicated to keeping Uganda&rsquo;s wheels moving.
+      .col-md-4
+        h6 SERVICES
+        p Short Term Hire
+        p Long Term Leasing
+        p Battery Maintenance
+        p Fleet Management
+      .col-md-4
+        h6 VEHICLE TYPES
+        p UPS Systems
+    .d-flex.justify-content-between.border-top.pt-3
+      p.mb-0 &copy; 2026 ParkVille Smart Systems Ltd. All rights reserved.
+      div
+        a.me-2(href='#') Privacy Policy
+        a.me-2(href='#') Terms of Service
+        a(href='#') Cookies
+// Bootstrap JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

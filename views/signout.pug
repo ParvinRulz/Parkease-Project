@@ -3,117 +3,126 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Sign-out and Receipting
-  link(rel='stylesheet' href='CSS/signout.css')
-// SIDE NAVIGATION BAR
-// Contains links to all system pages
-nav.top-navbar
-  // System title/logo
-  .nav-logo
-    h2 ParkEase
-  // Navigation links
-  ul.nav-links
-    // Admin Revenue Reports page
-    li
-      a(href='reports.html') Reports
-    // Register vehicles page
-    li
-      a(href='register.html') Register
-    // Parking attendants page
-    li
-      a(href='attendants.html') Attendants
-    // Vehicle sign out page
-    li
-      a(href='signout.html') Sign Out
-    // Battery hire services
-    li
-      a(href='battery.html') Battery
-    // Tyre services page
-    li
-      a(href='tyre.html') Tyre
-br
-input.search(type='text' placeholder='Search Receipt by ID or Plate Number')
-.user
-  span Parvin Rulz
-  span.role ATTENDANT
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='Public/CSS/signOut.css')
+// TOP BAR
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.px-3
+  a.navbar-brand(href='#')
+    h2 ParkVille
+  button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.ms-auto
+      li.nav-item
+        a.nav-link(href='reports.html') Reports
+      li.nav-item
+        a.nav-link(href='register.html') Register
+      li.nav-item
+        a.nav-link(href='attendants.html') Attendants
+      li.nav-item
+        a.nav-link.active(href='signout.html') Sign Out
+      li.nav-item
+        a.nav-link(href='battery.html') Battery
+      li.nav-item
+        a.nav-link(href='tyre.html') Tyre
+// Search and User Info
+.container.my-3.d-flex.justify-content-between.align-items-center
+  input.form-control.w-50(type='text' placeholder='Search Receipt by ID or Plate Number')
+  .text-end
+    span.d-block Parvin Rulz
+    span.text-muted ATTENDANT
+// Main Container
 .container
-  h1 Vehicle &amp; Arrival Details
-  p.subtitle Review parking details and confirm payment
-  .layout
+  h1.mb-2 Vehicle &amp; Arrival Details
+  p.text-muted.mb-4 Review parking details and confirm payment
+  .row
     // Left Side
-    .left
-      .vehicle
-        img.truck(src='Assests/truck.png')
-        .vehicle-text
-          h3 John Baptist Ssemuwemba
-          p Heavy Truck (T-04)
-          .times
-            div
-              span Arrival Time
-              p 10:24 AM
-            div
-              span Stay Duration
-              p 4h 20m
-      .fee
-        span CALCULATED PARKING FEE
-        h2 UGX 17,500
-      .receiver
-        h3 Receiver Information
-        .form-grid
-          div
-            label Full Name
-            input(type='text' value='John Baptist Ssemuwemba')
-          div
-            label Phone Number
-            input(type='text' value='+256')
-          div
-            label NIN Number
-            input(type='text' value='CMD000000000AAA')
-          div
-            label Gender
-            select
+    .col-lg-6.mb-4
+      // Vehicle Info
+      .card.mb-3.shadow-sm
+        .row.g-0.align-items-center
+          .col-4.text-center.p-3
+            img.img-fluid(src='Assests/truck.png' alt='Truck')
+          .col-8
+            .card-body
+              h5.card-title John Baptist Ssemuwemba
+              p.card-text Heavy Truck (T-04)
+              .d-flex.justify-content-between
+                div
+                  span.text-muted Arrival Time
+                  p 10:24 AM
+                div
+                  span.text-muted Stay Duration
+                  p 4h 20m
+      // Parking Fee
+      .card.text-center.mb-3.p-3.shadow-sm
+        span.text-muted CALCULATED PARKING FEE
+        h2.my-2 UGX 17,500
+      // Receiver Information
+      .card.mb-3.shadow-sm.p-3
+        h5 Receiver Information
+        .row.g-3.mt-2
+          .col-md-6
+            label.form-label Full Name
+            input.form-control(type='text' value='John Baptist Ssemuwemba')
+          .col-md-6
+            label.form-label Phone Number
+            input.form-control(type='text' value='+256')
+          .col-md-6
+            label.form-label NIN Number
+            input.form-control(type='text' value='CMD000000000AAA')
+          .col-md-6
+            label.form-label Gender
+            select.form-select
               option Male
               option Female
-          div
-            label Payment Methods
-            select
+          .col-md-6
+            label.form-label Payment Methods
+            select.form-select
               option Mobile Money
               option Cash
-      .buttons
-        button.confirm Confirm Payment &amp; Sign-out
-        button.cancel Cancel
-    // Right Side Receipt
-    .receipt
-      .receipt-logo
-        img(src='Assests/logo-P.png' alt='parkease-logo' width='100')
-      h3 PARKEASE
-      p.address
-        | Plot 28 Kampala Central 
-        br
-        |             +256 789 000000
-      hr
-      .receipt-row
-        span Receipt ID
-        span #PE-2023-49812
-      .receipt-row
-        span Date/Time
-        span Oct 24, 2023 02:44 PM
-      hr
-      .receipt-row
-        span Vehicle Reg
-        span UBA 123X
-      .receipt-row
-        span Vehicle Class
-        span Heavy Truck (T-04)
-      .receipt-row
-        span Entry Time
-        span 10:24 AM
-      .receipt-row
-        span Stay Duration
-        span 4h 20m
-      hr
-      .total
-        span Total Amount
-        h2 UGX 17,500
-      .qr
-        img(src='Assests/qr.jpg' alt='qr code')
-        p SCAN TO VERIFY
+      // Buttons
+      .d-flex.gap-2
+        button.btn.btn-warning.flex-fill Confirm Payment &amp; Sign-out
+        button.btn.btn-secondary.flex-fill Cancel
+    // Right Side - Receipt
+    .col-lg-6.mb-4
+      .card.shadow-sm.p-3
+        .text-center.mb-3
+          img(src='Assests/logo-P.png' alt='parkease-logo' width='100')
+          h5.mt-2 PARKVILLE
+          p.text-muted
+            | Plot 28 Kampala Central 
+            br
+            |                 +256 789 000000
+        hr
+        .d-flex.justify-content-between.mb-2
+          span Receipt ID
+          span #PV-2023-49812
+        .d-flex.justify-content-between.mb-2
+          span Date/Time
+          span Oct 24, 2023 02:44 PM
+        hr
+        .d-flex.justify-content-between.mb-2
+          span Vehicle Reg
+          span UBA 123X
+        .d-flex.justify-content-between.mb-2
+          span Vehicle Class
+          span Heavy Truck (T-04)
+        .d-flex.justify-content-between.mb-2
+          span Entry Time
+          span 10:24 AM
+        .d-flex.justify-content-between.mb-2
+          span Stay Duration
+          span 4h 20m
+        hr
+        .d-flex.justify-content-between.align-items-center.mb-3
+          span Total Amount
+          h4.mb-0 UGX 17,500
+        .text-center
+          img.img-fluid.mb-2(src='Assests/qr.jpg' alt='qr code')
+          p.text-muted.mb-0 SCAN TO VERIFY
+// Bootstrap JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

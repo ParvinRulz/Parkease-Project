@@ -1,122 +1,114 @@
 doctype html
 head
   meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
   title ParkVille Attendant Dashboard
-  link(rel='stylesheet' href='Public/CSS/attendantdashboard.css')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css')
-nav.top-navbar
-  // System title/logo
-  .nav-logo
-    h2 ParkVille
-  // Navigation links
-  ul.nav-links
-    // Admin Revenue Reports page
-    li
-      a(href='reports.html') Reports
-    // Register vehicles page
-    li
-      a(href='register.html') Register
-    // Parking attendants page
-    li
-      a(href='attendants.html') Attendants
-    // Vehicle sign out page
-    li
-      a(href='signout.html') Sign Out
-    // Battery hire services
-    li
-      a(href='battery.html') Battery
-    // Tyre services page
-    li
-      a(href='tyre.html') Tyre
-// Main Content
-.main
-  // Top bar
-  .topbar
-    input(type='text' placeholder='Search vehicle, receipt or plate number...')
-    .shift
-      i.fa-regular.fa-clock
-      |             SHIFT TIMING: 08:00 AM - 04:00 PM
-  // Stats
-  .cards
-    .card
-      p.card-title TOTAL VEHICLES PARKED
-      img(src='/Assests/car.jpeg' alt='car' width='150')
-      h2 122
-      span.green +12% Today
-    .card
-      p.card-title TODAY&apos;S TOTAL REVENUE
-      img(src='/Assests/money.jpg' alt='money' width='180')
-      h2 UGX 8,000,000
-      span.blue Daily Goal: 80%
-    .card
-      p.card-title AVAILABLE PARKING SLOTS
-      img(src='/Assests/parkinglot.jpg' alt='money' width='180')
-      h2 28 / 150
-      .progress
-        .progress-bar
-      .progress-text
-        span 81% Occupied
-        span High Demand
-  // Quick Actions
-  .actions
-    h3 Quick Actions
-    .buttons
-      button.yellow
-        i.fa-solid.fa-arrow-right
-        |               Register Arrival
-      button.dark
-        i.fa-solid.fa-arrow-right-from-bracket
-        |               Vehicle Sign-out
-      button.light
-        i.fa-solid.fa-print
-        |               Print Daily Summary
-  // Table
-  .table-section
-    .table-header
-      h3 Recent Arrivals
-      span View All Activity
-    table
-      thead
-        tr
-          th TIME
-          th PLATE NUMBER
-          th VEHICLE TYPE
-          th STATUS
-          th ACTIONS
-      tbody
-        tr
-          td 10:45 AM
-          td UAX 452C
-          td SUV
-          td
-            span.status.green Parked
-          td ...
-        tr
-          td 10:32 AM
-          td UBG 128Y
-          td Motorbike
-          td
-            span.status.green Parked
-          td ...
-        tr
-          td 10:15 AM
-          td UAB 900Z
-          td Delivery Van
-          td
-            span.status.orange Processing
-          td ...
-        tr
-          td 09:55 AM
-          td UBL 334K
-          td Sedan
-          td
-            span.status.gray Exited
-          td ...
-//
-  =========================
-  FOOTER
-  =========================
-footer.footer
-  h2 ADMIN CONTROL PANEL
-  p &copy; 2026 ParkVille Smart Systems
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+// NAVBAR
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.px-4
+  a.navbar-brand.fw-bold(href='#') ParkVille
+  button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navMenu')
+    span.navbar-toggler-icon
+  #navMenu.collapse.navbar-collapse
+    ul.navbar-nav.ms-auto
+      li.nav-item
+        a.nav-link(href='#') Reports
+      li.nav-item
+        a.nav-link(href='#') Register
+      li.nav-item
+        a.nav-link(href='#') Attendants
+      li.nav-item
+        a.nav-link(href='#') Sign Out
+      li.nav-item
+        a.nav-link(href='#') Battery
+      li.nav-item
+        a.nav-link(href='#') Tyre
+// MAIN
+.container.py-4
+  // TOP BAR
+  .d-flex.justify-content-between.align-items-center.mb-4
+    input.form-control.w-50(type='text' placeholder='Search vehicle, receipt or plate number...')
+    .fw-semibold
+      | &#x23F0; SHIFT: 08:00 AM - 04:00 PM
+  // CARDS
+  .row.g-4.mb-4
+    .col-md-4
+      .card.shadow-sm.text-center.p-3
+        p.text-muted TOTAL VEHICLES PARKED
+        img.img-fluid.mb-2(src='/Assests/car.jpeg' style='max-height:120px;')
+        h3 122
+        span.text-success +12% Today
+    .col-md-4
+      .card.shadow-sm.text-center.p-3
+        p.text-muted TODAY&apos;S TOTAL REVENUE
+        img.img-fluid.mb-2(src='/Assests/money.jpg' style='max-height:120px;')
+        h3 UGX 8,000,000
+        span.text-primary Daily Goal: 80%
+    .col-md-4
+      .card.shadow-sm.text-center.p-3
+        p.text-muted AVAILABLE PARKING SLOTS
+        img.img-fluid.mb-2(src='/Assests/parkinglot.jpg' style='max-height:120px;')
+        h3 28 / 150
+        .progress.mt-2
+          .progress-bar(style='width:81%')
+        .d-flex.justify-content-between.mt-2
+          small 81% Occupied
+          small High Demand
+  // ACTION BUTTONS
+  .mb-4
+    h4.mb-3 Quick Actions
+    .d-flex.gap-3.flex-wrap
+      button.btn.btn-warning &#x279C; Register Arrival
+      button.btn.btn-dark &#x2B05; Vehicle Sign-out
+      button.btn.btn-secondary &#x1F5A8; Print Daily Summary
+  // TABLE
+  .card.shadow-sm
+    .card-body
+      .d-flex.justify-content-between.mb-3
+        h5 Recent Arrivals
+        span.text-primary View All
+      .table-responsive
+        table.table.table-hover
+          thead.table-light
+            tr
+              th TIME
+              th PLATE NUMBER
+              th VEHICLE TYPE
+              th STATUS
+              th ACTIONS
+          tbody
+            tr
+              td 10:45 AM
+              td UAX 452C
+              td SUV
+              td
+                span.badge.bg-success Parked
+              td ...
+            tr
+              td 10:32 AM
+              td UBG 128Y
+              td BodaBoda
+              td
+                span.badge.bg-success Parked
+              td ...
+            tr
+              td 10:15 AM
+              td UAB 900Z
+              td Delivery Van
+              td
+                span.badge.bg-warning.text-dark Processing
+              td ...
+            tr
+              td 09:55 AM
+              td UBL 334K
+              td Sedan
+              td
+                span.badge.bg-secondary Exited
+              td ...
+// FOOTER
+footer.bg-dark.text-white.text-center.py-3.mt-4
+  h6.mb-1 ADMIN CONTROL PANEL
+  small &copy; 2026 ParkVille Smart Systems
+// Bootstrap JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

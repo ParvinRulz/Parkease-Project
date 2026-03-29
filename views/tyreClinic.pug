@@ -1,0 +1,159 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title ParkVille Tyre Clinic
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+// Navbar
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.px-3
+  a.navbar-brand(href='#')
+    h2 ParkVille
+  button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.me-auto
+      li.nav-item
+        a.nav-link(href='reports.html') Reports
+      li.nav-item
+        a.nav-link(href='attendantdashboard.html') Attendant
+      li.nav-item
+        a.nav-link(href='register.html') Register
+      li.nav-item
+        a.nav-link(href='battery.html') Battery
+      li.nav-item
+        a.nav-link(href='tyreClinic.html') Tyre Clinic
+      li.nav-item
+        a.nav-link(href='signout.html') Signout
+      li.nav-item
+        a.nav-link(href='login.html') Logout
+    form.d-flex
+      input.form-control.me-2(type='search' placeholder='Search inventory...')
+      button.btn.btn-outline-primary(type='submit') Sign In
+.container.my-5
+  .row
+    // Sidebar
+    aside.col-lg-3.mb-4
+      h4 Filters
+      .mb-3
+        p.fw-bold Tyre Category
+        .form-check
+          input.form-check-input(type='radio' name='category' checked='')
+          label.form-check-label All Inventory
+        .form-check
+          input.form-check-input(type='radio' name='category')
+          label.form-check-label Industrial
+        .form-check
+          input.form-check-input(type='radio' name='category')
+          label.form-check-label Commercial
+        .form-check
+          input.form-check-input(type='radio' name='category')
+          label.form-check-label Agriculture
+      .mb-3
+        p.fw-bold Size (Inches)
+        .btn-group.d-flex.flex-wrap.gap-2
+          button.btn.btn-outline-secondary 17.5&quot;
+          button.btn.btn-outline-secondary 19.5&quot;
+          button.btn.btn-secondary.active 22.5&quot;
+          button.btn.btn-outline-secondary 24.5&quot;
+      .mb-3
+        p.fw-bold Features
+        select.form-select
+          option All Season
+          option Off-road
+          option Highway
+      .card.text-center.shadow-sm.p-3
+        h5 Current Fleet Management
+        p Ensure your heavy-duty vehicles never stop with our on-site replacement service.
+        button.btn.btn-primary.mb-3 Manage Fleet
+        img.img-fluid(src='Assests/three-tyre.png' alt='three tires')
+    // Main Content
+    main.col-lg-9
+      // Hero
+      section.row.align-items-center.mb-5
+        .col-lg-6
+          span.badge.bg-warning.mb-2 PROFESSIONAL GRADE
+          h1
+            | Premium 
+            br
+            |  Heavy-Duty 
+            br
+            |  Tyre Clinic
+          p.text-muted
+            | Reliable replacements and long-term hire solutions for industrial vehicles and heavy fleets. Built for endurance.
+          .d-flex.flex-column.flex-md-row.gap-2
+            button.btn.btn-primary View Inventory
+            button.btn.btn-outline-dark Custom Quote
+        .col-lg-6.text-center
+          img.img-fluid(src='Assests/black-tyre.PNG' alt='tire')
+      // Inventory
+      section.mb-5
+        h2.mb-4 Inventory
+        .row.g-4
+          .col-md-4
+            .card.h-100.text-center.shadow-sm
+              img.card-img-top(src='Assests/normal-tyre.png' alt='strong black tire')
+              .card-body
+                h5.card-title Titan X-Force 22.5&quot;
+                p.card-text Optimized for all-terrain industrial logistics and long haul durability.
+                .d-flex.justify-content-between.align-items-center.mt-3
+                  span.fw-bold UGX 170,000
+                  button.btn.btn-warning Book Now
+          .col-md-4
+            .card.h-100.text-center.shadow-sm
+              img.card-img-top(src='Assests/middle-tyre.png' alt='middle tyre')
+              .card-body
+                h5.card-title Duramax Road King
+                p.card-text Precision highway performance for commercial fleets.
+                .d-flex.justify-content-between.align-items-center.mt-3
+                  span.fw-bold UGX 145,000
+                  button.btn.btn-warning Book Now
+          .col-md-4
+            .card.h-100.text-center.shadow-sm
+              img.card-img-top(src='Assests/heavy-tyre.png' alt='heavy duty tire')
+              .card-body
+                h5.card-title Terra-Master 4000
+                p.card-text Deep tread technology designed for construction sites.
+                .d-flex.justify-content-between.align-items-center.mt-3
+                  span.fw-bold UGX 235,000
+                  button.btn.btn-warning Book Now
+      // Why Section
+      section.row.align-items-center.mb-5
+        .col-md-6
+          h3 Why Hire from ParkEase?
+          ul.list-unstyled
+            li &#x2714; Certified Quality Tyres
+            li &#x2714; 24/7 Emergency Support
+        .col-md-6.d-flex.gap-4
+          .text-center.flex-fill.p-3.bg-light.rounded.shadow
+            h2 15k+
+            p Tires deployed annually
+          .text-center.flex-fill.p-3.bg-light.rounded.shadow
+            h2 98%
+            p Fleet uptime guaranteed
+// Footer
+footer.bg-light.pt-4.pb-3
+  .container
+    .row.mb-3
+      .col-md-3
+        h5 ParkEase
+        p.text-muted
+          | The global standard in vehicle maintenance and tire logistics for modern industry.
+      .col-md-3
+        h6 Services
+        p Emergency Replacement
+        p Long-term Fleet Hire
+        p Smart Parking
+        p Vehicle Maintenance
+      .col-md-3
+        h6 Resources
+        p Safety Guides
+        p Tire Maintenance
+        p Pricing Calculator
+        p Fleet API
+      .col-md-3
+        h6 Contact
+        p parvin.parkville@par.com
+        p +256 777 000000
+// Bootstrap JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

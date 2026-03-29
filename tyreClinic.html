@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParkVille Tyre Clinic</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+      <a class="navbar-brand" href="#"><h2>ParkVille</h2></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="reports.html">Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="attendantdashboard.html">Attendant</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="battery.html">Battery</a></li>
+          <li class="nav-item"><a class="nav-link" href="tyreClinic.html">Tyre Clinic</a></li>
+          <li class="nav-item"><a class="nav-link" href="signout.html">Signout</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search inventory..." />
+          <button class="btn btn-outline-primary" type="submit">Sign In</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside class="col-lg-3 mb-4">
+          <h4>Filters</h4>
+          <div class="mb-3">
+            <p class="fw-bold">Tyre Category</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category" checked>
+              <label class="form-check-label">All Inventory</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category">
+              <label class="form-check-label">Industrial</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category">
+              <label class="form-check-label">Commercial</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category">
+              <label class="form-check-label">Agriculture</label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <p class="fw-bold">Size (Inches)</p>
+            <div class="btn-group d-flex flex-wrap gap-2">
+              <button class="btn btn-outline-secondary">17.5"</button>
+              <button class="btn btn-outline-secondary">19.5"</button>
+              <button class="btn btn-secondary active">22.5"</button>
+              <button class="btn btn-outline-secondary">24.5"</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <p class="fw-bold">Features</p>
+            <select class="form-select">
+              <option>All Season</option>
+              <option>Off-road</option>
+              <option>Highway</option>
+            </select>
+          </div>
+
+          <div class="card text-center shadow-sm p-3">
+            <h5>Current Fleet Management</h5>
+            <p>Ensure your heavy-duty vehicles never stop with our on-site replacement service.</p>
+            <button class="btn btn-primary mb-3">Manage Fleet</button>
+            <img src="Assests/three-tyre.png" class="img-fluid" alt="three tires" />
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-lg-9">
+          <!-- Hero -->
+          <section class="row align-items-center mb-5">
+            <div class="col-lg-6">
+              <span class="badge bg-warning mb-2">PROFESSIONAL GRADE</span>
+              <h1>Premium <br> Heavy-Duty <br> Tyre Clinic</h1>
+              <p class="text-muted">
+                Reliable replacements and long-term hire solutions for industrial vehicles and heavy fleets. Built for endurance.
+              </p>
+              <div class="d-flex flex-column flex-md-row gap-2">
+                <button class="btn btn-primary">View Inventory</button>
+                <button class="btn btn-outline-dark">Custom Quote</button>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center">
+              <img src="Assests/black-tyre.PNG" class="img-fluid" alt="tire" />
+            </div>
+          </section>
+
+          <!-- Inventory -->
+          <section class="mb-5">
+            <h2 class="mb-4">Inventory</h2>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card h-100 text-center shadow-sm">
+                  <img src="Assests/normal-tyre.png" class="card-img-top" alt="strong black tire" />
+                  <div class="card-body">
+                    <h5 class="card-title">Titan X-Force 22.5"</h5>
+                    <p class="card-text">Optimized for all-terrain industrial logistics and long haul durability.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                      <span class="fw-bold">UGX 170,000</span>
+                      <button class="btn btn-warning">Book Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card h-100 text-center shadow-sm">
+                  <img src="Assests/middle-tyre.png" class="card-img-top" alt="middle tyre" />
+                  <div class="card-body">
+                    <h5 class="card-title">Duramax Road King</h5>
+                    <p class="card-text">Precision highway performance for commercial fleets.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                      <span class="fw-bold">UGX 145,000</span>
+                      <button class="btn btn-warning">Book Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card h-100 text-center shadow-sm">
+                  <img src="Assests/heavy-tyre.png" class="card-img-top" alt="heavy duty tire" />
+                  <div class="card-body">
+                    <h5 class="card-title">Terra-Master 4000</h5>
+                    <p class="card-text">Deep tread technology designed for construction sites.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                      <span class="fw-bold">UGX 235,000</span>
+                      <button class="btn btn-warning">Book Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Why Section -->
+          <section class="row align-items-center mb-5">
+            <div class="col-md-6">
+              <h3>Why Hire from ParkEase?</h3>
+              <ul class="list-unstyled">
+                <li>✔ Certified Quality Tyres</li>
+                <li>✔ 24/7 Emergency Support</li>
+              </ul>
+            </div>
+            <div class="col-md-6 d-flex gap-3 flex-wrap">
+              <div class="text-center flex-fill p-3 bg-light rounded shadow">
+                <h2>15k+</h2>
+                <p>Tires deployed annually</p>
+              </div>
+              <div class="text-center flex-fill p-3 bg-light rounded shadow">
+                <h2>98%</h2>
+                <p>Fleet uptime guaranteed</p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light pt-4 pb-3">
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <h5>ParkEase</h5>
+            <p class="text-muted">
+              The global standard in vehicle maintenance and tyre logistics for modern industry.
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h6>Services</h6>
+            <p>Emergency Replacement</p>
+            <p>Long-term Fleet Hire</p>
+            <p>Smart Parking</p>
+            <p>Vehicle Maintenance</p>
+          </div>
+          <div class="col-md-3">
+            <h6>Resources</h6>
+            <p>Safety Guides</p>
+            <p>Tire Maintenance</p>
+            <p>Pricing Calculator</p>
+            <p>Fleet API</p>
+          </div>
+          <div class="col-md-3">
+            <h6>Contact</h6>
+            <p>parvin.parkville@par.com</p>
+            <p>+256 777 000000</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
