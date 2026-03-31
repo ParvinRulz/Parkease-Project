@@ -2,6 +2,8 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const expressSession = require("express-session");
+const passport = require("passport");
 
 //Import routes
 const indexRoutes = require("./Routes/indexRoutes");
@@ -11,6 +13,8 @@ const registrationRoutes = require("./Routes/registrationRoutes");
 const receiptRoutes = require("./Routes/receiptRoutes");
 const batteryRoutes = require("./Routes/batteryRoutes");
 const tyreRoutes = require("./Routes/tyreRoutes");
+
+const Registration = require("./Models/Registration")
 
 //2.Instantiations
 const app = express();
@@ -33,6 +37,31 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views")); //specifies the views directory
 
 //4. Middleware
+
+// To parse URL encoded data
+app.use(express.urlencoded({ extended: false })); //This helpse to parse data from forms.
+app.use(express.static(path.join(__dirname, "public")));
+app.use(expressSession({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* PASSPORT LOCAL AUTHENTICATION */
+
+passport.use(Registration.createStrategy());
+
+passport.serializeUser(Registration.serializeUser());
+passport.deserializeUser(Registration.deserializeUser());
+
+//Global variable to make the loggged in user available to all pug templates.
+//Passport automatically attaches the logged in user to req.user
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
 //5. Routes
 //Using imported routes

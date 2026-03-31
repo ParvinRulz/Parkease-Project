@@ -23,7 +23,7 @@ head
 // nav bar
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   .container-fluid
-    a.navbar-brand(href='#') ParkEase
+    a.navbar-brand(href='#') ParkVille
     button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
@@ -52,19 +52,26 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         .row.mb-3
           .col-md-6.mb-3.mb-md-0
             label.form-label.fw-semibold(for='firstName') First Name
-            input#firstName.form-control(type='text' placeholder='John' required='')
+            input#firstName.form-control(type='text' placeholder='John' name='firstName')
           .col-md-6
             label.form-label.fw-semibold(for='lastName') Last Name
-            input#lastName.form-control(type='text' placeholder='Doe' required='')
+            input#lastName.form-control(type='text' placeholder='Doe' name='lastName')
         .mb-3
           label.form-label.fw-semibold(for='email') Email Address
-          input#email.form-control(type='email' placeholder='name@example.com' required='')
+          input#email.form-control(type='email' placeholder='name@example.com' name='email')
         .mb-3
           label.form-label.fw-semibold(for='phone') Phone Number
-          input#phone.form-control(type='tel' placeholder='+256 700 000000' required='')
+          input#phone.form-control(type='tel' placeholder='+256 700 000000' name='phoneNumber')
+          .mb-3
+            label.form-label.fw-semibold(for='role') Role
+            select#role(name="role")
+                option(value="") Select role 
+                option(value="Admin") Admin 
+                option(value="Manager") Manager 
+                option(value="Attendant") Attendant
         .mb-4
           label.form-label.fw-semibold(for='password') Password
-          input#password.form-control(type='password' placeholder='••••••••' required='')
+          input#password.form-control(type='password' placeholder='••••••••' name='password')
           .form-text Must be at least 8 characters long.
         button.btn.btn-primary.w-100.py-2.fw-bold.rounded-3(type='submit')
           | Sign Up

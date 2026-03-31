@@ -1,5 +1,4 @@
 doctype html
-| PASTE YOUR HTML CODE HERE
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1')
@@ -38,7 +37,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.px-4
       // Driver Name
       .col-md-6
         label.form-label Driver Name
-        input.form-control(type='text' placeholder='Enter driver full name')
+        input.form-control(type='text' placeholder='Enter driver full name' name='driverName')
       // Vehicle Type
       .col-md-6
         label.form-label Vehicle Type
@@ -51,26 +50,26 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.px-4
       // Number Plate
       .col-md-6
         label.form-label Number Plate
-        input.form-control(type='text' placeholder='UBA-1234')
+        input.form-control(type='text' placeholder='UBA-1234' name='numberPlate')
         #plateError.text-danger.small
       // Model & Color
       .col-md-6
         label.form-label Vehicle Model &amp; Color
-        input.form-control(type='text' placeholder='e.g Toyota Camry, Silver')
+        input.form-control(type='text' placeholder='e.g Toyota Camry, Silver' name='vehicleModel')
       // Arrival
       .col-md-6
         label.form-label Arrival Time &amp; Date
-        input#arrivalTime.form-control(type='datetime-local')
+        input#arrivalTime.form-control(type='datetime-local' name='arrivalTime')
         #arrivalError.text-danger.small
       // Phone
       .col-md-6
         label.form-label Phone Number
-        input#phoneNumber.form-control(type='text' placeholder='+256XXXXXXXXX')
+        input#phoneNumber.form-control(type='text' placeholder='+256XXXXXXXXX' name='phoneNumber')
         #phoneError.text-danger.small
       // NIN
       #ninContainer.col-md-6
         label.form-label NIN Number
-        input#ninNumber.form-control(type='text' placeholder='Enter NIN')
+        input#ninNumber.form-control(type='text' placeholder='Enter NIN' name='ninNumber')
     // BUTTONS
     .mt-4.d-flex.gap-3.flex-wrap
       button.btn.btn-warning.fw-semibold
