@@ -17,7 +17,7 @@ router.get("/battery", (req, res) => {
     res.render("battery");
 });
 
-router.post("/registerBattery", upload.single("batteryImage"),  isManager, async (req, res) => {
+router.post("/registerBattery", upload.single("batteryImage"), async (req, res) => {
   try {
     const newBattery = new Battery(req.body);
     newBattery.batteryImage = req.file.path
