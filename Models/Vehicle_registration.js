@@ -18,8 +18,8 @@ vehicleModel: {
     trim: true
 },
 arrivalTime: {
-    type: String,
-    trim: true
+    type: Date,
+    default: Date.now
 },
 phoneNumber: {
     type: String,

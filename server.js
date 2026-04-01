@@ -13,6 +13,7 @@ const registrationRoutes = require("./Routes/registrationRoutes");
 const receiptRoutes = require("./Routes/receiptRoutes");
 const batteryRoutes = require("./Routes/batteryRoutes");
 const tyreRoutes = require("./Routes/tyreRoutes");
+const signoutRoutes = require("./Routes/signoutRoutes");
 
 const Registration = require("./Models/Registration")
 
@@ -72,6 +73,7 @@ app.use("./", registrationRoutes);
 app.use("./", receiptRoutes);
 app.use("/", batteryRoutes);
 app.use("./", tyreRoutes);
+app.use("/", signoutRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 
 // This will always be the last endpoint in this file
