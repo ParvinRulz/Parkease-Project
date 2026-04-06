@@ -5,17 +5,16 @@ const mongoose = require("mongoose");
 const expressSession = require("express-session");
 const passport = require("passport");
 
+const Registration = require('./Models/Registration');
+console.log(Registration);
 //Import routes
 const indexRoutes = require("./Routes/indexRoutes");
 const authRoutes = require("./Routes/authRoutes");
 const dashboardRoutes = require("./Routes/dashboardRoutes");
-const registrationRoutes = require("./Routes/registrationRoutes");
 const receiptRoutes = require("./Routes/receiptRoutes");
 const batteryRoutes = require("./Routes/batteryRoutes");
 const tyreRoutes = require("./Routes/tyreRoutes");
 const signoutRoutes = require("./Routes/signoutRoutes");
-
-const Registration = require("./Models/Registration")
 
 //2.Instantiations
 const app = express();
@@ -69,7 +68,6 @@ app.use((req, res, next) => {
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 app.use("./", dashboardRoutes);
-app.use("./", registrationRoutes);
 app.use("./", receiptRoutes);
 app.use("/", batteryRoutes);
 app.use("./", tyreRoutes);

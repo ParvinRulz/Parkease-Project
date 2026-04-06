@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 //Import model files
-const Registration = require("../Models/Registration");
 const Vehicle = require("../Models/Vehicle_registration");
 const Battery = require("../Models/Battery_registration");
 

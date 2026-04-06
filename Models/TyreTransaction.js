@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const tireTransaction = new mongoose.Schema({
+const tyreTransaction = new mongoose.Schema({
   numberPlate: {
     type: String,
   },

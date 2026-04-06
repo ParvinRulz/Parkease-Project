@@ -1,7 +1,7 @@
 const express = require ("express");
 const router = express.Router();
 
-const Tyre = require("../Models/TyreTransactions");
+const Tyre = require("../Models/TyreTransaction");
 
 router.get("/tyre", (req, res) => {
     res.render("tyre");
