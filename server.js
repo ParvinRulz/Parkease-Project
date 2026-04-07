@@ -4,7 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const expressSession = require("express-session");
 const passport = require("passport");
-
+require("dotenv").config();
 const Registration = require('./Models/Registration');
 console.log(Registration);
 //Import routes
@@ -20,7 +20,7 @@ const signoutRoutes = require("./Routes/signoutRoutes");
 const app = express();
 const PORT = 3000;
 
-//3. Configurations
+//3.Configurations
 //mongodb settings
 //setting up database connections
 mongoose.connect(process.env.DATABASE);
@@ -66,11 +66,11 @@ app.use((req, res, next) => {
 //5. Routes
 //Using imported routes
 app.use("/", indexRoutes);
-app.use("/auth", authRoutes);
-app.use("./", dashboardRoutes);
-app.use("./", receiptRoutes);
+app.use("/", authRoutes);
+app.use("/", dashboardRoutes);
+app.use("/", receiptRoutes);
 app.use("/", batteryRoutes);
-app.use("./", tyreRoutes);
+app.use("/", tyreRoutes);
 app.use("/", signoutRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 
