@@ -10,6 +10,7 @@ console.log(Registration);
 //Import routes
 const indexRoutes = require("./Routes/indexRoutes");
 const authRoutes = require("./Routes/authRoutes");
+const vehicleRoutes = require("./Routes/vehicleRoutes");
 const dashboardRoutes = require("./Routes/dashboardRoutes");
 const receiptRoutes = require("./Routes/receiptRoutes");
 const batteryRoutes = require("./Routes/batteryRoutes");
@@ -67,6 +68,7 @@ app.use((req, res, next) => {
 //Using imported routes
 app.use("/", indexRoutes);
 app.use("/", authRoutes);
+app.use("/", vehicleRoutes);
 app.use("/", dashboardRoutes);
 app.use("/", receiptRoutes);
 app.use("/", batteryRoutes);

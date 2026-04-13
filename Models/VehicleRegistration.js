@@ -17,6 +17,13 @@ vehicleModel: {
     type: String,
     trim: true
 },
+vehicleColor: {
+    type: String,
+    trim: true
+},
+vehicleImage: {
+    type: String,
+},
 arrivalTime: {
     type: Date,
     default: Date.now
@@ -28,6 +35,10 @@ phoneNumber: {
 ninNumber: {
     type: String,
     trim: true
+},
+receiptNumber: {
+    type: String,
+    unique: true
 },
 status: {
     type: String,

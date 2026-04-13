@@ -2,6 +2,8 @@ const express = require ("express");
 const router = express.Router();
 const multer = require('multer');
 
+const Battery = require("../models/BatteryRegistration");
+
 //Image upload configurations
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
