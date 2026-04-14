@@ -4,9 +4,11 @@ const path = require("path");
 const mongoose = require("mongoose");
 const expressSession = require("express-session");
 const passport = require("passport");
+
+//Import registration model
+const Registration = require("./Models/Registration")
 require("dotenv").config();
-const Registration = require('./Models/Registration');
-console.log(Registration);
+
 //Import routes
 const indexRoutes = require("./Routes/indexRoutes");
 const authRoutes = require("./Routes/authRoutes");
@@ -14,6 +16,7 @@ const vehicleRoutes = require("./Routes/vehicleRoutes");
 const dashboardRoutes = require("./Routes/dashboardRoutes");
 const receiptRoutes = require("./Routes/receiptRoutes");
 const batteryRoutes = require("./Routes/batteryRoutes");
+const listsRoutes = require("./Routes/listsRoutes");
 const tyreRoutes = require("./Routes/tyreRoutes");
 const signoutRoutes = require("./Routes/signoutRoutes");
 
@@ -72,6 +75,7 @@ app.use("/", vehicleRoutes);
 app.use("/", dashboardRoutes);
 app.use("/", receiptRoutes);
 app.use("/", batteryRoutes);
+app.use("/", listsRoutes);
 app.use("/", tyreRoutes);
 app.use("/", signoutRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware

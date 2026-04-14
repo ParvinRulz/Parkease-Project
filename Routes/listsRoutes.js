@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 //Import model files
-const Vehicle = require("../Models/Vehicle_registration");
-const Battery = require("../Models/Battery_registration");
+const Registration = require("../models/Registration");
+const Vehicle = require("../Models/VehicleRegistration");
+const Battery = require("../Models/BatteryRegistration");
 
 router.get("/users", async (req, res) => {
     try {
@@ -24,7 +25,7 @@ router.get("/cars", async (req, res) => {
     }
 });
 
-router.get("/batteries", async (req, res) => {
+router.get("/battery", async (req, res) => {
     try {
         let batteries = await Battery.find().sort({$natural:-1})
         res.render("batteriesList", {batteries});

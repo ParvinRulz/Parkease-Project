@@ -5,7 +5,7 @@ const multer  = require('multer');
 const{ isAttendant} = require("../middleware/auth");
 
 //Import model files
-const Vehicle = require("../models/VehicleRegistration");
+const Vehicle = require("../Models/VehicleRegistration");
 
 //Image upload configurations
 let storage = multer.diskStorage({
