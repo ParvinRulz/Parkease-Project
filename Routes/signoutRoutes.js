@@ -3,8 +3,8 @@ const router = express.Router();
 const calculateParkingFee = require("../utils/feeCalculator");
 
 //Import models
-const Vehicle = require("../models/VehicleRegistration")
-const SignOut = require("../models/SignOut")
+const Vehicle = require("../Models/VehicleRegistration")
+const SignOut = require("../Models/SignOut")
 
 router.get("/signout", (req, res) => {
     res.render("signOut");
