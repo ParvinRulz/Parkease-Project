@@ -1,7 +1,9 @@
 const express = require ("express");
 const router = express.Router();
 const multer = require('multer');
+const{ isSectionManager} = require("../middleware/auth");
 
+// Import files
 const Battery = require("../Models/BatteryRegistration");
 
 //Image upload configurations

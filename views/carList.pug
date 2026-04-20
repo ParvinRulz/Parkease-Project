@@ -39,9 +39,8 @@ table.table
       th(scope='col') Arrival Date
       th(scope='col') Arrival Time
       th(scope='col') Status
-      if user.role === "Admin"
-        th(scope='col') Update
-        th(scope='col') Delete
+      th(scope='col') Update
+      th(scope='col') Delete
       
   tbody
     if cars.length
@@ -58,8 +57,7 @@ table.table
           td #{car.arrivalDate}
           td #{car.arrivalTime}
           td #{car.status}
-          if user.role === "Admin"
-              td
+          td
               a.btn.btn-sm.btn-outline-warning.text-dark(href=`/vehicles/update/${car._id}`)
               i.fa-solid.fa-pen-to-square
           td 

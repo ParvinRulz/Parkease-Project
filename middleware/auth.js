@@ -6,22 +6,22 @@ const isAuthenticated = (req, res, next) => {
     res.redirect("/login")
 }
 //Check if a logged in user is an Admin
-const isAdmin = (req, res, next) => {
-    if (req.isAuthenticated() && req.user.role === "Admin") {
+const isSystemAdmin = (req, res, next) => {
+    if (req.isAuthenticated() && req.user.role === "SystemAdmin") {
        return next();
     }
-    res.status(403).send("Access denined: You are not admin")
+    res.status(403).send("Access denined: You are not the system admin")
 }
-const isManager = (req, res, next) => {
-    if (req.isAuthenticated() && req.user.role === "Manager") {
+const isSectionManager = (req, res, next) => {
+    if (req.isAuthenticated() && req.user.role === "SectionManager") {
        return next();
     }
-    res.status(403).send("Access denined: You are not the manager")
+    res.status(403).send("Access denined: You are not the section manager")
 }
-const isAttendant = (req, res, next) => {
-    if (req.isAuthenticated() && req.user.role === "Attendant") {
+const isParkingAttendant = (req, res, next) => {
+    if (req.isAuthenticated() && req.user.role === "ParkingAttendant") {
         return next();
     }
-    res.status(403).send("Access denined: You are not the attendant")
+    res.status(403).send("Access denined: You are not the parking attendant")
 }
-module.exports = {isAuthenticated, isAdmin, isManager, isAttendant};
+module.exports = {isAuthenticated, isSystemAdmin, isSectionManager, isParkingAttendant};

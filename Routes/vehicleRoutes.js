@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const crypto = require("crypto");
 const multer  = require('multer');
-const{ isAttendant} = require("../middleware/auth");
+const{ isParkingAttendant} = require("../middleware/auth");
 
 //Import model files
 const Vehicle = require("../Models/VehicleRegistration");
