@@ -5,126 +5,116 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     title Vehicle Registration
 
-    // Bootstrap CSS
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
 
-    // Custom Styles
     style.
       .dark-blue {
-        background-color: #0d1b2a !important;
+        background-color: #0f172a !important;
         color: #fff !important;
       }
 
       .dark-blue-outline {
         border: 1px solid #0d1b2a !important;
-        color: #0d1b2a !important;
+        color: #0f172a !important;
         background-color: transparent !important;
       }
+
       .yellow-btn {
         background-color: #ffc107 !important;
-        color: #000 !important;
+        color: #0f172a !important;
         border: none !important;
       }
 
       .yellow-btn:hover {
         background-color: #e0a800 !important;
-        color: #000 !important;
+        color: #0f172a !important;
       }
 
   body
-    // NAVBAR (NOW DARK BLUE)
+    // NAVBAR
     nav.navbar.navbar-expand-lg.dark-blue.px-4
-      .d-flex.align-items-center
-        img(src='' width='60')
-        span.ms-2.fw-bold.text-white ParkVille
+      .container-fluid
+        .d-flex.align-items-center
+          img(src='' width='60')
+          span.ms-2.fw-bold.text-white ParkVille
 
-      button.navbar-toggler(
-        type='button'
-        data-bs-toggle='collapse'
-        data-bs-target='#navMenu'
-      )
-        span.navbar-toggler-icon
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navMenu')
+          span.navbar-toggler-icon
 
-      #navMenu.collapse.navbar-collapse
-        .navbar-nav.ms-auto
-          a.nav-link.text-white(href='#') Reports
-          a.nav-link.text-white(href='#') Attendant
-          a.nav-link.active.text-white(href='#') Register
-          a.nav-link.text-white(href='#') Battery
-          a.nav-link.text-white(href='#') Tyre-hire
-          a.nav-link.text-white(href='#') Signout
-          a.nav-link.text-white(href='#') Logout
+        #navMenu.collapse.navbar-collapse
+          .navbar-nav.ms-auto
+            a.nav-link.text-white(href='#') Reports
+            a.nav-link.text-white(href='#') Attendant
+            a.nav-link.active.text-white(href='#') Register
+            a.nav-link.text-white(href='#') Battery
+            a.nav-link.text-white(href='#') Tyre-hire
+            a.nav-link.text-white(href='#') Signout
+            a.nav-link.text-white(href='#') Logout
 
-      // USER
-      .text-white.text-end.ms-3
-        .fw-semibold Parvin Rulz
-        small ATTENDANT
+        .text-white.text-end.ms-3
+          .fw-semibold Ruth Rise
+          small ATTENDANT
 
-    // MAIN CONTENT
-    .container.py-4
-      h2.fw-bold Vehicle Registration
-      p.text-muted
-        | Registering incoming vehicles for secure entry and automated billing
+    // MAIN
+    .container.py-5
+      .row.justify-content-center
+        .col-lg-10
 
-      // FORM CARD
-      .card.shadow-sm.p-4.mt-3
-        h5.mb-4 Driver Information
+          h2.fw-bold.mb-1 Vehicle Registration
+          p.text-muted.mb-4 Registering incoming vehicles for secure entry and automated billing
 
-        .row.g-3
-          // Driver Name
-          .col-md-6
-            label.form-label Driver Name
-            input.form-control(type='text' placeholder='Enter driver full name' name='driverName')
+          // CARD
+          .card.shadow-sm.border-0.rounded-4
+            .card-body.p-4.p-md-5
 
-          // Vehicle Type
-          .col-md-6
-            label.form-label Vehicle Type
-            select#vehicleType.form-select
-              option Truck
-              option Personal Car
-              option Taxi
-              option Coaster
-              option Boda-boda
+              form(action="/vehicles" method="POST")
+                h5.fw-semibold.mb-4 Driver Information
 
-          // Number Plate
-          .col-md-6
-            label.form-label Number Plate
-            input.form-control(type='text' placeholder='UBA-1234' name='numberPlate')
-            #plateError.text-danger.small
+                .row.g-4
 
-          // Vehicle Model
-          .col-md-6
-            label.form-label Vehicle Model
-            input.form-control(type='text' placeholder='e.g Toyota Camry' name='vehicleModel')
+                  .col-md-6
+                    label.form-label Driver Name
+                    input.form-control(type='text' name='driverName' placeholder='Enter driver full name')
 
-          // Vehicle Color
-          .col-md-6
-            label.form-label Vehicle Color
-            input.form-control(type='text' placeholder='e.g Silver' name='vehicleColor')
+                  .col-md-6
+                    label.form-label Vehicle Type
+                    select.form-select(name='vehicleType')
+                      option Truck
+                      option Personal Car
+                      option Taxi
+                      option Coaster
+                      option Boda-boda
 
-          // Vehicle Image
-          .col-md-6
-            label.form-label Vehicle Image
-            input.form-control(type='file' name='vehicleImage')
+                  .col-md-6
+                    label.form-label Number Plate
+                    input.form-control(type='text' name='numberPlate' placeholder='UBA-1234')
+                    #plateError.text-danger.small.mt-1
 
-          // Phone
-          .col-md-6
-            label.form-label Phone Number
-            input#phoneNumber.form-control(type='text' placeholder='+256XXXXXXXXX' name='phoneNumber')
-            #phoneError.text-danger.small
+                  .col-md-6
+                    label.form-label Vehicle Model
+                    input.form-control(type='text' name='vehicleModel' placeholder='e.g Toyota Camry')
 
-          // NIN
-          #ninContainer.col-md-6
-            label.form-label NIN Number (Required for Boda-bodas)
-            input#ninNumber.form-control(type='text' placeholder='Enter valid NIN' name='ninNumber')
+                  .col-md-6
+                    label.form-label Vehicle Color
+                    input.form-control(type='text' name='vehicleColor' placeholder='e.g Silver')
 
-        // BUTTONS
-        .mt-4.d-flex.gap-3.flex-wrap
-          button.btn.yellow-btn.fw-semibold Register Vehicle
-          button.btn.dark-blue-outline Clear Form
+                  .col-md-6
+                    label.form-label Vehicle Image
+                    input.form-control(type='file' name='vehicleImage')
 
-    // Bootstrap JS
+                  .col-md-6
+                    label.form-label Phone Number
+                    input.form-control(type='text' name='phoneNumber' placeholder='0700000000')
+                    #phoneError.text-danger.small.mt-1
+
+                  .col-md-6
+                    label.form-label NIN Number (Required for Boda-bodas)
+                    input.form-control(type='text' name='ninNumber' placeholder='Enter valid NIN')
+
+                // BUTTONS
+                .mt-4.d-flex.flex-wrap.gap-3
+                  button.btn.yellow-btn.fw-semibold.px-4(type="submit") Register Vehicle
+                  button.btn.dark-blue-outline.px-4(type="reset") Clear Form
+
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
-
-    // JS
     script(src='/js/vehicleRegister.js')

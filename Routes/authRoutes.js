@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+// Import files
+const Registration = require("../Models/Registration");
+
 router.get("/signup", (req, res) => {
     res.render("signUp");
 });
