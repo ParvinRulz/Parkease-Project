@@ -25,7 +25,7 @@ router.get("/cars", async (req, res) => {
     }
 });
 
-router.get("/battery", async (req, res) => {
+router.get("/batterys", async (req, res) => {
     try {
         let batteries = await Battery.find().sort({$natural:-1})
         res.render("batteriesList", {batteries});
