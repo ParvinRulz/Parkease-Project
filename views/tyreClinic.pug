@@ -5,11 +5,13 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title ParkVille Tyre Clinic
 
-    // Bootstrap CSS
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
 
-    // Custom Styles
     style.
+      body {
+        background-color: #f8fafc;
+      }
+
       .dark-blue {
         background-color: #0f172a !important;
         color: #fff !important;
@@ -29,144 +31,150 @@ html(lang='en')
 
       .yellow-btn:hover {
         background-color: #e0a800 !important;
-        color: #000 !important;
+      }
+
+      .section-title {
+        border-left: 4px solid #ffc107;
+        padding-left: 10px;
       }
 
   body
-    // Navbar
-    nav.navbar.navbar-expand-lg.dark-blue.px-3
-      a.navbar-brand.text-white(href='#')
-        h2.mb-0 ParkVille
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.dark-blue.shadow-sm
+      .container-fluid.px-4
+        a.navbar-brand.text-white.fw-bold(href='#') ParkVille
 
-      button.navbar-toggler(
-        type='button'
-        data-bs-toggle='collapse'
-        data-bs-target='#navbarNav'
-      )
-        span.navbar-toggler-icon
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+          span.navbar-toggler-icon
 
-      #navbarNav.collapse.navbar-collapse
-        ul.navbar-nav.me-auto
-          li.nav-item
-            a.nav-link.text-white(href='reports.html') Reports
-          li.nav-item
-            a.nav-link.text-white(href='attendantdashboard.html') Attendant
-          li.nav-item
-            a.nav-link.text-white(href='register.html') Register
-          li.nav-item
-            a.nav-link.text-white(href='battery.html') Battery
-          li.nav-item
-            a.nav-link.active.text-white(href='tyreClinic.html') Tyre Clinic
-          li.nav-item
-            a.nav-link.text-white(href='signout.html') Signout
-          li.nav-item
-            a.nav-link.text-white(href='login.html') Logout
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link.text-white(href='#') Reports
+            li.nav-item
+              a.nav-link.text-white(href='#') Attendant
+            li.nav-item
+              a.nav-link.text-white(href='#') Register
+            li.nav-item
+              a.nav-link.text-white(href='#') Battery
+            li.nav-item
+              a.nav-link.active.text-warning.fw-semibold(href='#') Tyre Clinic
+            li.nav-item
+              a.nav-link.text-white(href='#') Signout
+            li.nav-item
+              a.nav-link.text-white(href='#') Logout
 
-        form.d-flex
-          input.form-control.me-2(type='search' placeholder='Search inventory...')
-          button.btn.yellow-btn(type='submit') Sign In
+    // HERO CARD (TEXT + IMAGE TOGETHER)
+    section.container.py-5
+      .card.shadow.border-0.rounded-4.p-4.p-md-5
+        .row.align-items-center.g-4
 
-    // MAIN
-    .container.my-5
-      .row
-        // Sidebar
-        aside.col-lg-3.mb-4
-          .card.text-center.shadow-sm.p-3.mt-3
-            h5 Current Tyre Management
-            p Ensure your heavy-duty vehicles never stop with our on-site replacement service.
-            button.btn.yellow-btn.mb-3 Manage Tyre
-            img.img-fluid(src='/Images/three-tyre.png' alt='three tires')
+          .col-lg-6
+            span.badge.bg-warning.text-dark.mb-3 PROFESSIONAL GRADE
+            h1.fw-bold.mb-3 Premium Heavy-Duty Tyre Clinic
+            p.text-muted
+              | Reliable replacements and long-term hire solutions for industrial vehicles and fleets. Built for endurance.
 
-        // Main Content
-        main.col-lg-9
-          // Hero
-          section.row.align-items-center.mb-5
-            .col-lg-6
-              span.badge.bg-warning.mb-2 PROFESSIONAL GRADE
-              h1
-                | Premium
-                br
-                | Heavy-Duty
-                br
-                | Tyre Clinic
-              p.text-muted
-                | Reliable replacements and long-term hire solutions for industrial vehicles and heavy fleets. Built for endurance.
-              .d-flex.flex-column.flex-md-row.gap-2
-                button.btn.yellow-btn View Inventory
-                button.btn.dark-blue-outline Custom Quote
+            .d-flex.gap-3.mt-4
+              button.btn.yellow-btn.px-4 View Inventory
+              button.btn.dark-blue-outline.px-4 Custom Quote
 
-            .col-lg-6.text-center
-              img.img-fluid(src='/Images/black-tyre.PNG' alt='tire')
+          .col-lg-6.text-center
+            img.img-fluid.rounded-4.shadow(src='/Images/black-tyre.PNG' alt='Tyre')
 
-          // Inventory Form
-          section.mb-5
-            h2.mb-4 Tyre and Size Inventory
+    // MAIN CONTENT
+    section.container.pb-5
+      .row.g-5
 
-            form(method='post' action='')
-              .row.g-3
-                .col-md-6
-                  label.form-label.fw-semibold(for='tireType') Tire Type
-                  select#tireType.form-select(name='tireType')
-                    option(value='') Select tyre type
-                    option(value='Bridgestone') Bridgestone
-                    option(value='Goodyear') Goodyear
-                    option(value='CEAT') CEAT
-                    option(value='Continental') Continental
+        // LEFT CARD (INFO)
+        .col-lg-4
+          .card.shadow-sm.border-0.rounded-4.p-4.text-center
+            h5.fw-bold.mb-2 Tyre Management
+            p.text-muted.small
+            p.Ensure We ensure your vehicles never stop with our on-site replacement service.
+            button.btn.yellow-btn.mt-2 Manage Tyre
+            img.img-fluid.mt-3(src='/Images/three-tyre.png' alt='Tyres')
 
-                .col-md-6
-                  label.form-label.fw-semibold(for='tyreSize') Tire Size
-                  select#tyreSize.form-select(name='tyreSize')
-                    option(value='') Select tyre size
-                    option(value='15 inch') 15 inch
-                    option(value='16 inch') 16 inch
-                    option(value='17 inch') 17 inch
-                    option(value='18 inch') 18 inch
+        // RIGHT CARD (FORM)
+        .col-lg-8
+          .card.shadow.border-0.rounded-4
+            .card-body.p-4.p-md-5
 
-                .col-md-6
-                  label.form-label.fw-semibold(for='tireService') Tire Service
-                  select#tireService.form-select(name='tireService')
-                    option(value='') Select tire service
-                    option(value='pressure') Pressure
-                    option(value='puncture-fixing') Puncture Fixing
-                    option(value='valves') Valves
+              h5.fw-bold.mb-4.section-title Tyre Inventory
 
-          // Why Section
-          section.row.align-items-center.mb-5
-            .col-md-6
-              h3 Why Hire from ParkVille?
-              ul.list-unstyled
-                li ✔ Certified Quality Tyres
-                li ✔ 24/7 Emergency Support
+              form(method='post' action='')
+                .row.g-4
 
-            .col-md-6.d-flex.gap-4
-              .text-center.flex-fill.p-3.bg-light.rounded.shadow
-                h2 15k+
-                p Tires deployed annually
+                  .col-md-6
+                    label.form-label.fw-semibold Tire Type
+                    select.form-select(name='tireType')
+                      option(value='' disabled selected) Select tyre type
+                      option Bridgestone
+                      option Goodyear
+                      option CEAT
+                      option Continental
 
-    // Footer
+                  .col-md-6
+                    label.form-label.fw-semibold Tire Size
+                    select.form-select(name='tyreSize')
+                      option(value='' disabled selected) Select tyre size
+                      option 15 inch
+                      option 16 inch
+                      option 17 inch
+                      option 18 inch
+
+                  .col-md-6
+                    label.form-label.fw-semibold Tire Service
+                    select.form-select(name='tireService')
+                      option(value='' disabled selected) Select service
+                      option Pressure
+                      option Puncture Fixing
+                      option Valves
+
+                .mt-4.d-flex.gap-3
+                  button.btn.dark-blue.px-4(type='submit') Save
+                  button.btn.dark-blue-outline.px-4(type='reset') Clear
+
+    // WHY SECTION (CARD STYLE)
+    section.container.mb-5
+      .card.border-0.shadow-sm.rounded-4.p-4
+        .row.align-items-center
+
+          .col-md-6
+            h5.fw-bold.mb-3 Why Hire from ParkVille?
+            ul.list-unstyled.mb-0
+              li ✔ Certified Quality Tyres
+              li ✔ 24/7 Emergency Support
+
+          .col-md-6.text-center
+            .bg-light.rounded-4.p-4.shadow-sm
+              h2.fw-bold 15k+
+              p.mb-0 Tyres deployed annually
+
+    // FOOTER
     footer.dark-blue.pt-4.pb-3
       .container
-        .row.mb-3
+        .row.g-4
+
           .col-md-3
-            h5 ParkVille
-            p The global standard in vehicle, battery and tyre maintenance.
+            h5.fw-bold ParkVille
+            p.small The global standard in vehicle, battery and tyre maintenance.
 
           .col-md-3
             h6 Services
-            p Emergency Replacement
-            p Smart Parking
-            p Vehicle Maintenance
+            p.mb-1 Emergency Replacement
+            p.mb-1 Smart Parking
+            p.mb-1 Vehicle Maintenance
 
           .col-md-3
             h6 Resources
-            p Safety Guides
-            p Tire Maintenance
-            p Pricing Calculator
+            p.mb-1 Safety Guides
+            p.mb-1 Tyre Maintenance
+            p.mb-1 Pricing Calculator
 
           .col-md-3
             h6 Contact
-            p parvin.parkville@par.com
-            p +256 777 000000
+            p.mb-1 parvin.parkville@par.com
+            p.mb-1 +256 777 000000
 
-    // Bootstrap JS
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

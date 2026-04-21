@@ -5,14 +5,13 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title ParkVille Battery Hire
 
-    // Bootstrap CSS
-    link(
-      href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'
-      rel='stylesheet'
-    )
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
 
-    // Custom Styles
     style.
+      body {
+        background-color: #f8fafc;
+      }
+
       .dark-blue {
         background-color: #0f172a !important;
         color: #fff !important;
@@ -24,9 +23,6 @@ html(lang='en')
         background-color: transparent !important;
       }
 
-      .dark-blue-text {
-        color: #0f172a !important;
-      }
       .yellow-btn {
         background-color: #ffc107 !important;
         color: #000 !important;
@@ -35,128 +31,136 @@ html(lang='en')
 
       .yellow-btn:hover {
         background-color: #e0a800 !important;
-        color: #000 !important;
+      }
+
+      .section-title {
+        border-left: 4px solid #ffc107;
+        padding-left: 10px;
       }
 
   body
-    // Navbar
-    nav.navbar.navbar-expand-lg.dark-blue.px-3
-      a.navbar-brand.text-white(href='#')
-        h2.mb-0 ParkVille
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.dark-blue.shadow-sm
+      .container-fluid.px-4
+        a.navbar-brand.text-white.fw-bold(href='#') ParkVille
 
-      button.navbar-toggler(
-        type='button'
-        data-bs-toggle='collapse'
-        data-bs-target='#navbarNav'
-      )
-        span.navbar-toggler-icon
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+          span.navbar-toggler-icon
 
-      #navbarNav.collapse.navbar-collapse
-        ul.navbar-nav.me-auto
-          li.nav-item
-            a.nav-link.text-white(href='reports.html') Reports
-          li.nav-item
-            a.nav-link.text-white(href='attendantdashboard.html') Attendant
-          li.nav-item
-            a.nav-link.text-white(href='register.html') Register
-          li.nav-item
-            a.nav-link.active.text-white(href='battery.html') Battery
-          li.nav-item
-            a.nav-link.text-white(href='tyre-hire.html') Tyre-hire
-          li.nav-item
-            a.nav-link.text-white(href='signout.html') Signout
-          li.nav-item
-            a.nav-link.text-white(href='login.html') Logout
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link.text-white(href='#') Reports
+            li.nav-item
+              a.nav-link.text-white(href='#') Attendant
+            li.nav-item
+              a.nav-link.text-white(href='#') Register
+            li.nav-item
+              a.nav-link.active.text-warning.fw-semibold(href='#') Battery
+            li.nav-item
+              a.nav-link.text-white(href='#') Tyre-hire
+            li.nav-item
+              a.nav-link.text-white(href='#') Signout
+            li.nav-item
+              a.nav-link.text-white(href='#') Logout
 
-        form.d-flex
-          input.form-control.me-2(type='search' placeholder='Search batteries...')
-          button.btn.yellow-btn(type='submit') Sign In
-
-    // Hero Section
-    section.container.my-5
-      .row.align-items-center
+    // HERO SECTION
+    section.container.py-5
+      .row.align-items-center.g-5
         .col-lg-6
-          span.badge.bg-warning.text-dark.mb-2 PARKVILLE BATTERIES
-          h1
-            | Heavy-Duty
-            br
-            | Battery Hire
+          span.badge.bg-warning.text-dark.mb-3 PARKVILLE BATTERIES
+          h1.fw-bold.mb-3
+            | Heavy-Duty Battery Hire
           p.text-muted
-            | Reliable power solutions for every vehicle type. High-capacity,
-            | long-lasting 3-phase and lead-acid batteries ready for immediate use.
-          .d-flex.gap-2.mt-3
-            button.btn.yellow-btn View Inventory
+            | Reliable power solutions for all vehicle types. High-capacity,
+            | long-lasting batteries ready for immediate use.
+
+          .d-flex.gap-3.mt-4
+            button.btn.yellow-btn.px-4 View Inventory
+            button.btn.dark-blue-outline.px-4 Learn More
 
         .col-lg-6.text-center
-          img.img-fluid(src='/Images/yellow-bluebattery.PNG' alt='Battery Hero')
+          img.img-fluid.rounded-4.shadow(src='/Images/yellow-bluebattery.PNG' alt='Battery')
 
-    // Browse Section
-    section.container.my-5
-      .d-flex.justify-content-between.align-items-center.mb-4
-        h2.mb-0 Browse Selection
-        .btn-group
-          button.btn.dark-blue All Categories
-          button.btn.dark-blue-outline Traction
-          button.btn.dark-blue-outline Emergency
+    // MAIN CONTENT
+    section.container.pb-5
+      .row.g-5
 
-      h2.text-center.fw-bold.mb-2 Batteries
-      p.text-center.text-muted.mb-4 Please enter your details to sign in.
+        // LEFT: FILTER / CATEGORY
+        .col-lg-4
+          .card.shadow-sm.border-0.rounded-4.p-4
+            h5.fw-bold.mb-3.section-title Categories
 
-      .row.justify-content-center
-        .col-md-6
-          form(method='post' action='/registerBattery' enctype='multipart/form-data')
-            .mb-3
-              label.form-label.fw-semibold Battery Type
-              select#batteryType.form-select(name='batteryType')
-                option(value='') Select tire type
-                option(value='Absorbent Glass Matt') Absorbent Glass Matt
-                option(value='Flooded') Flooded
-                option(value='Lithium-ion') Lithium-ion
+            .d-grid.gap-2
+              button.btn.dark-blue All Batteries
+              button.btn.dark-blue-outline Traction
+              button.btn.dark-blue-outline Emergency
+              button.btn.dark-blue-outline Lithium
 
-            .mb-3
-              label.form-label.fw-semibold Battery Size
-              select#batterySize.form-select(name='batterySize')
-                option(value='') Select battery size
-                option(value='12V') 12V (for bodabodas, small cars)
-                option(value='24V') 24V (for big trucks)
+        // RIGHT: FORM
+        .col-lg-8
+          .card.shadow.border-0.rounded-4
+            .card-body.p-4.p-md-5
 
-            .mb-4
-              label.form-label.fw-semibold(for='batteryImage') Battery Image
-              input#batteryImage.form-control(type='file' name='batteryImage')
+              h5.fw-bold.mb-4.section-title Add New Battery
 
-            button.btn.dark-blue.w-100.py-2.fw-bold.rounded-3(type='submit') Add Battery
+              form(method='post' action='/registerBattery' enctype='multipart/form-data')
+                .row.g-4
 
-    // CTA Section
+                  .col-md-6
+                    label.form-label.fw-semibold Battery Type
+                    select.form-select(name='batteryType')
+                      option(value='' disabled selected) Select battery type
+                      option Absorbent Glass Matt
+                      option Flooded
+                      option Lithium-ion
+
+                  .col-md-6
+                    label.form-label.fw-semibold Battery Size
+                    select.form-select(name='batterySize')
+                      option(value='' disabled selected) Select battery size
+                      option 12V (Small vehicles)
+                      option 24V (Trucks)
+
+                  .col-12
+                    label.form-label.fw-semibold Battery Image
+                    input.form-control(type='file' name='batteryImage')
+
+                .mt-4.d-flex.gap-3
+                  button.btn.dark-blue.px-4(type='submit') Add Battery
+                  button.btn.dark-blue-outline.px-4(type='reset') Clear
+
+    // CTA SECTION
     section.container.text-center.my-5
-      h2 Need a Battery Service Solution?
-      p.text-muted.mb-3
-        | We offer good battery services by showing you the right battery your vehicle needs.
-      button.btn.btn-warning Contact Service Team
+      .card.border-0.shadow-sm.rounded-4.p-5
+        h3.fw-bold.mb-2 Need a Battery Solution?
+        p.text-muted
+          | Get expert recommendations for the perfect battery for your vehicle.
+        button.btn.yellow-btn.px-4.mt-2 Contact Service Team
 
-    // Footer (Dark Blue)
+    // FOOTER
     footer.dark-blue.mt-5.pt-4.pb-3
       .container
-        .row.mb-3
+        .row.g-4
+
           .col-md-4
-            h5 ParkVille
-            p
+            h5.fw-bold ParkVille
+            p.small
               | Powering your performance with premium battery solutions.
-              | Dedicated to keeping Uganda’s wheels moving.
 
           .col-md-4
             h6 SERVICES
-            p Short Term Hire
-            p Battery Maintenance
+            p.mb-1 Short Term Hire
+            p.mb-1 Battery Maintenance
 
           .col-md-4
             h6 VEHICLE TYPES
-            p UPS Systems
+            p.mb-1 UPS Systems
 
-        .d-flex.justify-content-between.border-top.pt-3
-          p.mb-0 © 2026 ParkVille Smart Systems Ltd. All rights reserved.
+        .d-flex.justify-content-between.border-top.pt-3.mt-3
+          p.mb-0.small © 2026 ParkVille Smart Systems Ltd.
           div
-            a.me-2.text-white(href='#') Privacy Policy
-            a.me-2.text-white(href='#') Terms of Service
+            a.me-2.text-white.small(href='#') Privacy Policy
+            a.text-white.small(href='#') Terms
 
-    // Bootstrap JS
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
