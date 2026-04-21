@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
 
 // Import files
 const Registration = require("../Models/Registration");
@@ -24,5 +25,20 @@ router.post("/signup", async (req, res) => {
 router.get("/login", (req, res) => {
   res.render("login");
 });
+
+router.post("/login", passport.authenticate("local", {
+  failureRedirect:"/login"
+}), async(req, res)=>{
+  req.session.user=req.user
+  if( req.user.role=="Parking Attendant"){
+    res.redirect("/attendantdashboard")
+  }
+  if( req.user.role=="System Admin"){
+    res.redirect("/admindashboard")
+  }
+  if( req.user.role=="Section Manager"){
+    res.redirect("/managerdashboard")
+  }
+})
 
 module.exports = router;

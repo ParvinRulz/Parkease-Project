@@ -40,7 +40,7 @@ html
           p.text-muted.small Please enter your details to sign in
 
         // Form
-        form
+        form(action="/login" method="POST")
           .mb-3
             label.form-label Username
             input.form-control(type='text' placeholder='Enter your username')
