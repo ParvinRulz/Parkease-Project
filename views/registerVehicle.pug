@@ -128,8 +128,8 @@ html(lang='en')
                     #phoneError.text-danger.small.mt-1
 
                   .col-md-6
-                    label.form-label.fw-semibold NIN Number
-                    input.form-control(type='text' name='ninNumber' placeholder='Required for boda-bodas')
+                    label.form-label.fw-semibold.text-danger(for='ninNumber') NIN Number(Required for Boda-bodas)
+                    input#ninNumber.form-control.border-danger(type='text' placeholder='Enter valid NIN' name='ninNumber')
 
                 // BUTTONS
                 .mt-5.d-flex.flex-wrap.gap-3.justify-content-between

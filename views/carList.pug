@@ -1,72 +1,103 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Car Page
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB' crossorigin='anonymous')
-  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' rel='stylesheet')
-nav.navbar.navbar-expand-lg.bg-body-tertiary
-  .container-fluid
-    a.navbar-brand(href='#') Cars
-    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
-      span.navbar-toggler-icon
-    #navbarNav.collapse.navbar-collapse
-      ul.navbar-nav
-        li.nav-item
-          a.nav-link.active(aria-current='page' href='#') Manager
-        li.nav-item
-          a.nav-link(href='#') Attendant
-        li.nav-item
-          a.nav-link(href='#') Admin
-        li.nav-item
-          a.nav-link(href='#') Users
-        li.nav-item
-          a.nav-link(href='#') Batteries
-.col-md-4
-  .card.shadow.dashboard-card.p-3.text-center
-    h5 CARS PARKED
-    h2.text-primary 3
-table.table
-  thead
-    tr
-      th(scope='col') Vehicle Image
-      th(scope='col') Driver Name
-      th(scope='col') Phone Number
-      th(scope='col') Vehicle Type
-      th(scope='col') Plate Number
-      th(scope='col') Vehicle Model
-      th(scope='col') Vehicle Color
-      th(scope='col') Arrival Date
-      th(scope='col') Arrival Time
-      th(scope='col') Status
-      th(scope='col') Update
-      th(scope='col') Delete
-      
-  tbody
-    if cars.length
-      each car in cars
-        tr
-          td 
-            img(src="/"+car.vehicleImage alt="Vehicle image" width="150px", height="170px")
-          td #{car.driverName}
-          td #{car.phoneNumber}
-          td #{car.vehicleType}
-          td #{car.numberPlate}
-          td #{car.vehicleModel}
-          td #{car.vehicleColor}
-          td #{car.arrivalDate}
-          td #{car.arrivalTime}
-          td #{car.status}
-          td
-              a.btn.btn-sm.btn-outline-warning.text-dark(href=`/vehicles/update/${car._id}`)
-              i.fa-solid.fa-pen-to-square
-          td 
-              form(method='post', action='/vehicles/delete')
-                input(type='hidden', name='id', value=car._id)
-                button.btn.btn-sm.btn-outline-danger.text-dark(type='submit')
-                  i.fa-solid.fa-trash
-    else
-        tr
-          td.text-center.py-4.text-muted(colspan="4") No cars found.
-    
-    
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Car Page
+
+    // Bootstrap
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB' crossorigin='anonymous')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' rel='stylesheet')
+
+    style.
+      body {
+        background-color: #f8fafc;
+      }
+      .custom-navbar {
+        background-color: #0f172a !important;
+      }
+      .custom-navbar .nav-link,
+      .custom-navbar .navbar-brand {
+        color: white !important;
+      }
+      .custom-navbar .nav-link.active {
+        font-weight: bold;
+      }
+
+  body
+
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.custom-navbar
+      .container-fluid
+        a.navbar-brand(href='#') Cars
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link.active(href='#') Manager
+            li.nav-item
+              a.nav-link(href='#') Attendant
+            li.nav-item
+              a.nav-link(href='#') Admin
+            li.nav-item
+              a.nav-link(href='#') Users
+            li.nav-item
+              a.nav-link(href='#') Batteries
+
+    // MAIN CONTENT
+    .container.mt-5
+
+      // DASHBOARD CARD
+      .row.mb-4
+        .col-md-4
+          .card.shadow-sm.p-4.text-center
+            h5.mb-2 CARS PARKED
+            h2.text-primary 3
+
+      // TABLE SECTION
+      .card.shadow-sm
+        .card-body
+          .table-responsive
+            table.table.table-hover.align-middle
+              thead.table-light
+                tr
+                  th Vehicle Image
+                  th Driver Name
+                  th Phone Number
+                  th Vehicle Type
+                  th Plate Number
+                  th Vehicle Model
+                  th Vehicle Color
+                  th Arrival Date
+                  th Arrival Time
+                  th Status
+                  th Update
+                  th Delete
+
+              tbody
+                if cars.length
+                  each car in cars
+                    tr
+                      td
+                        img.rounded(src='/' + car.vehicleImage alt='Vehicle image' width='120' height='100')
+                      td #{car.driverName}
+                      td #{car.phoneNumber}
+                      td #{car.vehicleType}
+                      td #{car.numberPlate}
+                      td #{car.vehicleModel}
+                      td #{car.vehicleColor}
+                      td #{car.arrivalDate}
+                      td #{car.arrivalTime}
+                      td #{car.status}
+                      td
+                        a.btn.btn-sm.btn-outline-warning.text-dark(href=`/vehicles/update/${car._id}`)
+                          i.fa-solid.fa-pen-to-square
+                      td
+                        form(method='post', action='/vehicles/delete')
+                          input(type='hidden', name='id', value=car._id)
+                          button.btn.btn-sm.btn-outline-danger.text-dark(type='submit')
+                            i.fa-solid.fa-trash
+                else
+                  tr
+                    td.text-center.py-4.text-muted(colspan='12') No cars found.

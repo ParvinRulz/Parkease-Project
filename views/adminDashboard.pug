@@ -1,126 +1,93 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  title ParkVille Daily Reports
-  // Bootstrap CSS
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
-// NAVBAR
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.px-4
-  a.navbar-brand.fw-bold(href='#') ParkVille
-  button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navMenu')
-    span.navbar-toggler-icon
-  #navMenu.collapse.navbar-collapse
-    ul.navbar-nav.ms-auto
-      li.nav-item
-        a.nav-link(href='#') Reports
-      li.nav-item
-        a.nav-link(href='#') Register
-      li.nav-item
-        a.nav-link(href='#') Attendants
-      li.nav-item
-        a.nav-link(href='#') Sign Out
-      li.nav-item
-        a.nav-link(href='#') Battery
-      li.nav-item
-        a.nav-link(href='#') Tyre
-// MAIN CONTAINER
-.container.py-4
-  // HEADER
-  .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3
-    .d-flex.align-items-center.gap-3
-      img(src='Assests/logo-P.png' width='80')
-      h4.mb-0 PARKVILLE DAILY REPORTS
-    .d-flex.gap-2
-      button.btn.btn-warning Download PDF
-      button.btn.btn-secondary Export CSV
-  // REVENUE OVERVIEW
-  h5.mb-3 Revenue Overview
-  .row.g-4.mb-4
-    .col-md-4
-      .card.text-center.shadow-sm.p-3
-        p.text-muted PARKING REVENUE
-        img.img-fluid.mb-2(src='Assests/cash.jpg' style='max-height:120px;')
-        h4 UGX 4,600,000
-        span.text-success &#x25B2; +12.5%
-    .col-md-4
-      .card.text-center.shadow-sm.p-3
-        p.text-muted TYRE HIRE
-        img.img-fluid.mb-2(src='Assests/yellowtyre.PNG' style='max-height:120px;')
-        h4 UGX 1,650,000
-        span.text-success &#x25B2; +5.2%
-    .col-md-4
-      .card.text-center.shadow-sm.p-3
-        p.text-muted BATTERY HIRE
-        img.img-fluid.mb-2(src='Assests/yellow-bluebattery.PNG' style='max-height:120px;')
-        h4 UGX 720,000
-        span.text-success &#x25B2; +2.1%
-  // DATE SELECTOR
-  .d-flex.justify-content-center.align-items-center.gap-3.mb-4
-    button.btn.btn-outline-dark &#x25C0;
-    span.fw-semibold March 25, 2026
-    button.btn.btn-outline-dark &#x25B6;
-  // TABLE SECTION
-  .card.shadow-sm
-    .card-body
-      // HEADER
-      .d-flex.justify-content-between.align-items-center.mb-3.flex-wrap.gap-2
-        h5.mb-0 All Signed-out Vehicles
-        input.form-control.w-auto(type='text' placeholder='Search plates...')
-      // TABLE
-      .table-responsive
-        table.table.table-bordered.table-hover
-          thead.table-light
-            tr
-              th RECEIPT #
-              th PLATE #
-              th IN-TIME
-              th OUT-TIME
-              th DURATION
-              th FEE
-          tbody
-            tr
-              td #PV-98231
-              td UAA 214A
-              td 08:15 AM
-              td 05:30 PM
-              td 9h 15m
-              td UGX 25,000
-            tr
-              td #PV-98232
-              td UBB 673B
-              td 09:00 AM
-              td 02:15 PM
-              td 5h 15m
-              td UGX 15,000
-            tr
-              td #PV-98233
-              td UAX 982X
-              td 10:30 AM
-              td 06:45 PM
-              td 8h 15m
-              td UGX 22,000
-            tr
-              td #PV-98234
-              td UAW 119W
-              td 07:45 AM
-              td 11:00 AM
-              td 3h 15m
-              td UGX 10,000
-            tr
-              td #PV-98235
-              td UAZ 541Z
-              td 11:15 AM
-              td 08:00 PM
-              td 8h 45m
-              td UGX 24,000
-      // FOOTER
-      .d-flex.justify-content-between.align-items-center.mt-3
-        span.fw-semibold DAILY GRAND TOTAL :
-        h4.mb-0 UGX 6,790,000
-// FOOTER
-footer.bg-dark.text-white.text-center.py-3.mt-4
-  h6.mb-1 SYSTEM ADMIN CONTROL PANEL
-  small &copy; 2026 ParkVille Smart Systems
-// Bootstrap JS
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
+extends layout
+
+block content
+  .container.py-5
+
+    // HEADER + FILTER
+    .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3.border-bottom.pb-3
+      .d-flex.flex-column
+        h2.fw-bold.mb-1 System Admin Dashboard
+        p.text-muted.mb-0 Daily Revenue & Vehicle Sign-Out Report
+
+      form.d-flex.align-items-center(action="/adminDashboard" method="GET")
+        label.me-2.fw-semibold(for="dateFilter") Filter by Day:
+        input.form-control.me-2#dateFilter(type="date" name="date" value=selectedDate)
+        button.btn.btn-warning(type="submit")
+          i.fa-solid.fa-filter.me-1
+          | Filter
+
+    // REVENUE CARDS
+    .row.g-4.mb-5
+
+      // PARKING
+      .col-md-4
+        .card.shadow-sm.border-0.rounded-4.h-100(style="background-color:#0f172a; color:white;")
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-center.mb-3
+              h6.fw-bold.text-white-50.mb-0 PARKING REVENUE
+              i.fa-solid.fa-square-parking.fs-3.text-white-50
+              //- h3.fw-bold UGX #{parkingRevenue.toLocaleString()}
+              p.small.mb-0 Total parking fees collected today
+
+      // TYRE
+      .col-md-4
+        .card.shadow-sm.border-0.rounded-4.h-100.bg-success.text-white
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-center.mb-3
+              h6.fw-bold.text-white-50.mb-0 TYRE CLINIC REVENUE
+              i.fa-solid.fa-circle-notch.fs-3.text-white-50
+              //- h3.fw-bold UGX #{tyreRevenue.toLocaleString()}
+              p.small.mb-0 Total tyre services & sales today
+
+      // BATTERY
+      .col-md-4
+        .card.shadow-sm.border-0.rounded-4.h-100.bg-warning.text-dark
+          .card-body.p-4
+            .d-flex.justify-content-between.align-items-center.mb-3
+              h6.fw-bold.text-dark-50.mb-0 BATTERY REVENUE
+              i.fa-solid.fa-car-battery.fs-3.text-dark-50
+              //- h3.fw-bold UGX #{batteryRevenue.toLocaleString()}
+              p.small.mb-0 Total battery hire & sales today
+
+
+    // TABLE SECTION
+    .card.shadow-sm.border-0.rounded-4
+      .card-header.bg-white.py-3.border-bottom
+        h5.mb-0.fw-bold
+          i.fa-solid.fa-car-side.me-2(style="color:#0f172a;")
+          | Signed-Out Vehicles for #{selectedDate}
+
+      .card-body.p-0
+
+        .table-responsive
+          table.table.table-hover.align-middle.mb-0
+            thead(style="background-color:#f8fafc;")
+              tr
+                th.px-4 Receipt No.
+                th Receiver Name
+                th Vehicle Plate
+                th Sign-Out Time
+                th Amount Paid
+
+            tbody
+              if signedOutVehicles && signedOutVehicles.length > 0
+                each record in signedOutVehicles
+                  tr
+                    td.px-4.fw-semibold(style="color:#0f172a;")= record.receiptNumber
+                    td= record.receiverName
+
+                    td
+                      if record.vehicleId
+                        span.badge(style="background-color:#0f172a;")= record.vehicleId.numberPlate
+                      else
+                        span.text-muted N/A
+
+                    td= new Date(record.signoutDate).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+
+                    td.fw-bold.text-success UGX #{record.amountPaid.toLocaleString()}
+
+              else
+                tr
+                  td.text-center.py-5.text-muted(colspan="5")
+                    i.fa-solid.fa-folder-open.fs-1.mb-3.d-block.text-light
+                    | No vehicles were signed out on this date.
