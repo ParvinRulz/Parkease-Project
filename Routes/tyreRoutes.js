@@ -12,7 +12,7 @@ router.post("/tyreServices", async (req, res) => {
     const newTyre = new Tyre(req.body);
     console.log(newTyre);
     await newTyre.save();
-    res.redirect("/tyreServices");
+    res.redirect("/tyre");
   } catch (error) {
     console.error(error);
     res.render("tyre");

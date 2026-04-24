@@ -1,80 +1,124 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title ParkVille Dashboard
-  link(rel='stylesheet' href='css/styles.css')
-.nav-set
-  nav.navbar
-    .logo
-      | ParkVille
-    ul.nav-links
-      li
-        a.register-link(href='register.html') Register Vehicle
-      li
-        a(href='reports.html') Admin
-      li
-        a(href='batterySection.html') Battery Section
-      li
-        a(href='tyreClinic.html') Tyre Clinic
-      li
-        a.dashboard-link(href='dashboard.html') Dashboard
-      li
-        a(href='signOut.html') Check Out
-    .nav-right
-      span.user-role Admin
-      a.logout-btn(href='index.html') Logout
-  .dashboard-top
-    .search-wrapper
-      input.dashboard-search(type='text' placeholder='Search vehicle by number plate...')
-  .dashboard-container
-    // STAT CARDS
-    .stats
-      .card
-        h3 Parked Vehicles
-        p 24
-      .card
-        h3 Total Revenue
-        p UGX 450,000
-      .card
-        h3 Available Slots
-        p 16
-      .card
-        h3 Active Attendants
-        p 3
-    // QUICK ACTIONS
-    .quick-actions
-      a(href='register.html')
-        button.btn.btn-primary Register Vehicle
-      a(href='signOut.html')
-        button.btn.btn-outline Vehicle Sign Out
-    // TABLE
-    .table-container
-      table
-        thead
-          tr
-            th Vehicle Type
-            th Number Plate
-            th Time In
-            th Status
-            th Services
-        tbody
-          tr
-            td Car
-            td UBA 123A
-            td 08:45 AM
-            td.status-active Parked
-            td Car Wash
-          tr
-            td SUV
-            td UBK 782D
-            td 09:15 AM
-            td.status-active Parked
-            td Tyre Check
-          tr
-            td Boda Boda
-            td UED 334B
-            td 07:30 AM
-            td.status-out Signed Out
-            td None
-script(src='javaScript/dashboard.js')
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title ParkVille Dashboard
+
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet")
+
+    style.
+      .dark-nav {
+        background-color: #0f172a;
+      }
+      .card-soft {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      }
+      .stat-value {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
+  body
+
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.dark-nav.navbar-dark
+      .container-fluid
+        a.navbar-brand.fw-bold(href='#') ParkVille
+
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#nav')
+          span.navbar-toggler-icon
+
+        #nav.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item
+              a.nav-link(href='/register') Register Vehicle
+            li.nav-item
+              a.nav-link(href='/admin') Admin
+            li.nav-item
+              a.nav-link(href='/batterySection') Battery Section
+            li.nav-item
+              a.nav-link(href='/tyreClinic') Tyre Clinic
+            li.nav-item
+              a.nav-link.active(href='/dashboard') Dashboard
+            li.nav-item
+              a.nav-link(href='/signOut') Check Out
+
+          .d-flex.align-items-center.gap-3
+            span.text-white.small Admin
+            a.btn.btn-outline-light.btn-sm(href='/logout') Logout
+
+    .container.py-4
+
+      // SEARCH BAR
+      .mb-4
+        input.form-control.form-control-lg(type='text' placeholder='Search vehicle by number plate...' name='search')
+
+      // STATS (DYNAMIC READY)
+      .row.g-4.mb-4
+
+        .col-md-3
+          .card.card-soft.p-3.text-center
+            h6.text-muted Parked Vehicles
+            .stat-value= parkedVehicles || 0
+
+        .col-md-3
+          .card.card-soft.p-3.text-center
+            h6.text-muted Total Revenue
+            .stat-value UGX #{totalRevenue ? totalRevenue.toLocaleString() : 0}
+
+        .col-md-3
+          .card.card-soft.p-3.text-center
+            h6.text-muted Available Slots
+            .stat-value= availableSlots || 0
+
+        .col-md-3
+          .card.card-soft.p-3.text-center
+            h6.text-muted Active Attendants
+            .stat-value= activeAttendants || 0
+
+      // QUICK ACTIONS
+      .d-flex.gap-3.mb-4
+        a.btn.btn-primary(href='/register') Register Vehicle
+        a.btn.btn-outline-dark(href='/signOut') Vehicle Sign Out
+
+      // TABLE
+      .card.card-soft
+        .card-header.bg-white
+          h5.mb-0 Vehicle Activity
+
+        .table-responsive
+          table.table.table-hover.mb-0.align-middle
+            thead.table-light
+              tr
+                th Vehicle Type
+                th Number Plate
+                th Time In
+                th Status
+                th Services
+
+            tbody
+              if vehicles && vehicles.length > 0
+                each vehicle in vehicles
+                  tr
+                    td= vehicle.type
+                    td= vehicle.numberPlate
+                    td= vehicle.timeIn
+                    td
+                      if vehicle.status === 'Parked'
+                        span.badge.bg-success Parked
+                      else
+                        span.badge.bg-secondary Signed Out
+                    td= vehicle.services || 'None'
+              else
+                tr
+                  td.text-center.py-4.text-muted(colspan='5')
+                    | No vehicle records available
+
+    // FOOTER
+    footer.dark-nav.text-white.text-center.py-3.mt-5
+      p.mb-0 ParkVille Smart Parking System © 2026
+
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js")

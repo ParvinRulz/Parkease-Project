@@ -14,14 +14,20 @@ router.get(
 router.get(
   "/attendantDashboard",
   /*isParkingAttendant,*/ (req, res) => {
-    res.render("attendantDashboard");
+    res.render("attendantDashboard", {
+      cars: []
+    });
   },
 );
 
 router.get(
   "/managerDashboard",
   /*isSectionManager,*/ (req, res) => {
-    res.render("managerDashboard");
+    res.render("managerDashboard", {
+      parkingActivities: [],
+      services: [],
+      pricing: []
+  });
   },
 );
 
