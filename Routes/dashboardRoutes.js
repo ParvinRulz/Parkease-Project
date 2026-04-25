@@ -6,6 +6,7 @@ const router = express.Router();
 
 const Transaction = require("../Models/Transaction");
 const Activity = require("../Models/Activity");
+const RecentActivity = require("../Models/RecentActivity");
 
 router.get(
   "/adminDashboard",
@@ -21,7 +22,8 @@ router.get(
     console.log(activities)
     res.render("attendantDashboard", {
       cars: [],
-      activities
+      activities,
+      recentactivities
     });
   },
 );

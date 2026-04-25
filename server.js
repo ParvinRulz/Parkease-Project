@@ -21,6 +21,7 @@ const tyreRoutes = require("./Routes/tyreRoutes");
 const signoutRoutes = require("./Routes/signoutRoutes");
 const transactionRoutes = require("./Routes/transactionRoutes");
 const activityRoutes = require("./Routes/activityRoutes");
+const recentActivityRoutes = require("./Routes/recentActivityRoutes");
 
 //2.Instantiations
 const app = express();
@@ -82,6 +83,7 @@ app.use("/", tyreRoutes);
 app.use("/", signoutRoutes);
 app.use("/", transactionRoutes);
 app.use("/", activityRoutes);
+app.use("/", recentActivityRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 
 // This will always be the last endpoint in this file
