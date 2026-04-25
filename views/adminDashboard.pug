@@ -1,0 +1,104 @@
+extends layout
+
+block content
+  style.
+    .dark-header {
+      background-color: #0f172a;
+    }
+    .dark-text {
+      color: #0f172a;
+    }
+    .card-soft {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+  // NAVBAR (assumes layout allows override styling)
+  nav.navbar.navbar-expand-lg.dark-header.navbar-dark
+    .container
+      a.navbar-brand.fw-bold(href='#') System Admin Dashboard
+
+  .container.py-5
+
+    // HEADER + FILTER
+    .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3.border-bottom.pb-3
+      .d-flex.flex-column
+        h2.fw-bold.mb-1.dark-text System Admin Dashboard
+        p.text-muted.mb-0 Daily Revenue & Vehicle Sign-Out Report
+
+      form.d-flex.align-items-center(action="/adminDashboard" method="GET")
+        label.me-2.fw-semibold(for="dateFilter") Filter by Day:
+        input.form-control.me-2#dateFilter(type="date" name="date" value=selectedDate)
+        button.btn(style="background-color:#0f172a; color:white;" type="submit")
+          | Filter
+
+    // REVENUE CARDS
+    .row.g-4.mb-5
+
+      // PARKING
+      .col-md-4
+        .card.card-soft.h-100
+          .card-body.p-4
+            h6.text-muted.fw-semibold PARKING REVENUE
+            h3.fw-bold.dark-text.mt-2 UGX #{parkingRevenue ? parkingRevenue.toLocaleString() : 0}
+            p.text-muted.small.mb-0 Total parking fees collected today
+
+      // TYRE (changed from green to neutral/blue-grey)
+      .col-md-4
+        .card.card-soft.h-100(style="background:#f1f5f9;")
+          .card-body.p-4
+            h6.text-muted.fw-semibold TYRE CLINIC REVENUE
+            h3.fw-bold.dark-text.mt-2 UGX #{tyreRevenue ? tyreRevenue.toLocaleString() : 0}
+            p.text-muted.small.mb-0 Total tyre services & sales today
+
+      // BATTERY
+      .col-md-4
+        .card.card-soft.h-100(style="background:#fff7ed;")
+          .card-body.p-4
+            h6.text-muted.fw-semibold BATTERY REVENUE
+            h3.fw-bold.dark-text.mt-2 UGX #{batteryRevenue ? batteryRevenue.toLocaleString() : 0}
+            p.text-muted.small.mb-0 Total battery hire & sales today
+
+    // TABLE SECTION
+    .card.card-soft
+      .card-header.bg-white.py-3.border-bottom
+        h5.mb-0.fw-bold.dark-text
+          | Signed-Out Vehicles for #{selectedDate}
+
+      .card-body.p-0
+        .table-responsive
+          table.table.table-hover.mb-0.align-middle
+            thead(style="background:#f8fafc;")
+              tr
+                th.p-3 Receipt No.
+                th Receiver Name
+                th Vehicle Plate
+                th Sign-Out Time
+                th Amount Paid
+
+            tbody
+              if signedOutVehicles && signedOutVehicles.length > 0
+                each record in signedOutVehicles
+                  tr
+                    td.p-3.fw-semibold.dark-text= record.receiptNumber
+                    td= record.receiverName
+
+                    td
+                      if record.vehicleId
+                        span.badge(style="background:#0f172a;")= record.vehicleId.numberPlate
+                      else
+                        span.text-muted N/A
+
+                    td= new Date(record.signoutDate).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})
+
+                    td.fw-bold.text-success UGX #{record.amountPaid.toLocaleString()}
+
+              else
+                tr
+                  td.text-center.py-5.text-muted(colspan="5")
+                    | No vehicles were signed out on this date.
+
+  // FOOTER
+  footer.dark-header.text-white.text-center.py-3.mt-5
+    p.mb-0 System Admin Control Panel © 2026

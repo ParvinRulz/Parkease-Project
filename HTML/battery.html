@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParkVille Battery Hire</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+      <a class="navbar-brand" href="#"><h2>ParkVille</h2></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="reports.html">Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="attendantdashboard.html">Attendant</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link active" href="battery.html">Battery</a></li>
+          <li class="nav-item"><a class="nav-link" href="tyre-hire.html">Tyre-hire</a></li>
+          <li class="nav-item"><a class="nav-link" href="signout.html">Signout</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search batteries..." />
+          <button class="btn btn-outline-primary" type="submit">Sign In</button>
+        </form>
+        <div class="ms-3 badge bg-secondary p-2 rounded-circle">1</div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <span class="badge bg-warning text-dark mb-2">INDUSTRIAL GRADE</span>
+          <h1>
+            Heavy-Duty <br>
+            <span>Industrial</span><br>
+            Battery Hire
+          </h1>
+          <p class="text-muted">
+            Reliable power solutions for every vehicle type. High-capacity,
+            long-lasting 3-phase and lead-acid batteries ready for immediate
+            deployment across Uganda.
+          </p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-warning">View Inventory</button>
+            <button class="btn btn-outline-dark">Get a Quote</button>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="Assests/battery1.PNG" class="img-fluid" alt="Battery Hero">
+        </div>
+      </div>
+    </section>
+
+    <!-- Browse Section -->
+    <section class="container my-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Browse Selection</h2>
+        <div class="btn-group">
+          <button class="btn btn-primary active">All Categories</button>
+          <button class="btn btn-outline-primary">Traction</button>
+          <button class="btn btn-outline-primary">Emergency</button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="Assests/battery2.png" class="card-img-top" alt="UltraVolt X1000">
+            <div class="card-body">
+              <h5 class="card-title">UltraVolt X1000</h5>
+              <p class="card-text">48V 100Ah – Industrial Grade</p>
+              <span class="badge bg-success mb-2">In Stock</span>
+              <h4>UGX 170,000/day</h4>
+              <button class="btn btn-warning mt-2">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="Assests/battery3.PNG" class="card-img-top" alt="IronCore Heavy Duty">
+            <div class="card-body">
+              <h5 class="card-title">IronCore Heavy Duty</h5>
+              <p class="card-text">24V / 400Ah – Rugged Use</p>
+              <span class="badge bg-warning mb-2">Low Stock</span>
+              <h4>UGX 190,000</h4>
+              <button class="btn btn-warning mt-2">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="Assests/battery4.PNG" class="card-img-top" alt="GigaCell 120Ah">
+            <div class="card-body">
+              <h5 class="card-title">GigaCell 120Ah</h5>
+              <p class="card-text">12V 120Ah – Multi Purpose</p>
+              <span class="badge bg-danger mb-2">Offer</span>
+              <h4>UGX 55,000</h4>
+              <button class="btn btn-warning mt-2">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container text-center my-5">
+      <h2>Need a Custom Fleet Solution?</h2>
+      <p class="text-muted mb-3">
+        We offer discounted rates for long-term rentals and bulk sales for
+        industrial logistics partners across the region.
+      </p>
+      <button class="btn btn-warning">Contact Sales Team</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light mt-5 pt-4 pb-3">
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5>ParkVille</h5>
+            <p class="text-muted">
+              Powering your performance with premium battery solutions. Dedicated to keeping Uganda’s wheels moving.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h6>SERVICES</h6>
+            <p>Short Term Hire</p>
+            <p>Long Term Leasing</p>
+            <p>Battery Maintenance</p>
+            <p>Fleet Management</p>
+          </div>
+          <div class="col-md-4">
+            <h6>VEHICLE TYPES</h6>
+            <p>UPS Systems</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between border-top pt-3">
+          <p class="mb-0">© 2026 ParkVille Smart Systems Ltd. All rights reserved.</p>
+          <div>
+            <a href="#" class="me-2">Privacy Policy</a>
+            <a href="#" class="me-2">Terms of Service</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

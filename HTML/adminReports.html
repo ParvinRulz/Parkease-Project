@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ParkVille Daily Reports</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <a class="navbar-brand fw-bold" href="#">ParkVille</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Attendants</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sign Out</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Battery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tyre</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container py-4">
+
+      <!-- HEADER -->
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <img src="Assests/logo-P.png" width="80">
+          <h4 class="mb-0">PARKVILLE DAILY REPORTS</h4>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-warning">Download PDF</button>
+          <button class="btn btn-secondary">Export CSV</button>
+        </div>
+      </div>
+
+      <!-- REVENUE OVERVIEW -->
+      <h5 class="mb-3">Revenue Overview</h5>
+
+      <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <p class="text-muted">PARKING REVENUE</p>
+            <img src="Assests/cash.jpg" class="img-fluid mb-2" style="max-height:120px;">
+            <h4>UGX 4,600,000</h4>
+            <span class="text-success">▲ +12.5%</span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <p class="text-muted">TYRE HIRE</p>
+            <img src="Assests/yellowtyre.PNG" class="img-fluid mb-2" style="max-height:120px;">
+            <h4>UGX 1,650,000</h4>
+            <span class="text-success">▲ +5.2%</span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <p class="text-muted">BATTERY HIRE</p>
+            <img src="Assests/yellow-bluebattery.PNG" class="img-fluid mb-2" style="max-height:120px;">
+            <h4>UGX 720,000</h4>
+            <span class="text-success">▲ +2.1%</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DATE SELECTOR -->
+      <div class="d-flex justify-content-center align-items-center gap-3 mb-4">
+        <button class="btn btn-outline-dark">◀</button>
+        <span class="fw-semibold">March 25, 2026</span>
+        <button class="btn btn-outline-dark">▶</button>
+      </div>
+
+      <!-- TABLE SECTION -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h5 class="mb-0">All Signed-out Vehicles</h5>
+            <input type="text" class="form-control w-auto" placeholder="Search plates...">
+          </div>
+
+          <!-- TABLE -->
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th>RECEIPT #</th>
+                  <th>PLATE #</th>
+                  <th>IN-TIME</th>
+                  <th>OUT-TIME</th>
+                  <th>DURATION</th>
+                  <th>FEE</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>#PV-98231</td>
+                  <td>UAA 214A</td>
+                  <td>08:15 AM</td>
+                  <td>05:30 PM</td>
+                  <td>9h 15m</td>
+                  <td>UGX 25,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98232</td>
+                  <td>UBB 673B</td>
+                  <td>09:00 AM</td>
+                  <td>02:15 PM</td>
+                  <td>5h 15m</td>
+                  <td>UGX 15,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98233</td>
+                  <td>UAX 982X</td>
+                  <td>10:30 AM</td>
+                  <td>06:45 PM</td>
+                  <td>8h 15m</td>
+                  <td>UGX 22,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98234</td>
+                  <td>UAW 119W</td>
+                  <td>07:45 AM</td>
+                  <td>11:00 AM</td>
+                  <td>3h 15m</td>
+                  <td>UGX 10,000</td>
+                </tr>
+
+                <tr>
+                  <td>#PV-98235</td>
+                  <td>UAZ 541Z</td>
+                  <td>11:15 AM</td>
+                  <td>08:00 PM</td>
+                  <td>8h 45m</td>
+                  <td>UGX 24,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- FOOTER -->
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <span class="fw-semibold">DAILY GRAND TOTAL :</span>
+            <h4 class="mb-0">UGX 6,790,000</h4>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+      <h6 class="mb-1">ADMIN CONTROL PANEL</h6>
+      <small>© 2026 ParkVille Smart Systems</small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vehicle Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <!-- TOPBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <div class="d-flex align-items-center">
+        <img src="Assets/logo-P.png" width="60">
+        <span class="text-white ms-2 fw-bold">ParkVille</span>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="#">Reports</a>
+          <a class="nav-link" href="#">Attendant</a>
+          <a class="nav-link active" href="#">Register</a>
+          <a class="nav-link" href="#">Battery</a>
+          <a class="nav-link" href="#">Tyre-hire</a>
+          <a class="nav-link" href="#">Signout</a>
+          <a class="nav-link" href="#">Logout</a>
+        </div>
+      </div>
+
+      <!-- USER -->
+      <div class="text-white text-end ms-3">
+        <div class="fw-semibold">Parvin Rulz</div>
+        <small>ATTENDANT</small>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="container py-4">
+
+      <h2 class="fw-bold">Vehicle Registration</h2>
+      <p class="text-muted">
+        Registering incoming vehicles for secure entry and automated billing
+      </p>
+
+      <!-- CARD -->
+      <div class="card shadow-sm p-4 mt-3">
+
+        <h5 class="mb-3">Driver Information</h5>
+
+        <div class="row g-3">
+
+          <!-- Driver Name -->
+          <div class="col-md-6">
+            <label class="form-label">Driver Name</label>
+            <input type="text" class="form-control" placeholder="Enter driver full name">
+          </div>
+
+          <!-- Vehicle Type -->
+          <div class="col-md-6">
+            <label class="form-label">Vehicle Type</label>
+            <select class="form-select" id="vehicleType">
+              <option>Truck</option>
+              <option>Personal Car</option>
+              <option>Taxi</option>
+              <option>Coaster</option>
+              <option>Boda-boda</option>
+            </select>
+          </div>
+
+          <!-- Number Plate -->
+          <div class="col-md-6">
+            <label class="form-label">Number Plate</label>
+            <input type="text" class="form-control" placeholder="UBA-1234">
+            <div class="text-danger small" id="plateError"></div>
+          </div>
+
+          <!-- Model & Color -->
+          <div class="col-md-6">
+            <label class="form-label">Vehicle Model & Color</label>
+            <input type="text" class="form-control" placeholder="e.g Toyota Camry, Silver">
+          </div>
+
+          <!-- Arrival -->
+          <div class="col-md-6">
+            <label class="form-label">Arrival Time & Date</label>
+            <input type="datetime-local" class="form-control" id="arrivalTime">
+            <div class="text-danger small" id="arrivalError"></div>
+          </div>
+
+          <!-- Phone -->
+          <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="+256XXXXXXXXX">
+            <div class="text-danger small" id="phoneError"></div>
+          </div>
+
+          <!-- NIN -->
+          <div class="col-md-6" id="ninContainer">
+            <label class="form-label">NIN Number</label>
+            <input type="text" class="form-control" id="ninNumber" placeholder="Enter NIN">
+          </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <button class="btn btn-warning fw-semibold">
+            Register & Print Receipt
+          </button>
+
+          <button class="btn btn-outline-secondary">
+            Clear Form
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="Public/JAVASCRIPT/validateregex.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const vehicleTypeSelect = document.getElementById('vehicleType');
+        const ninContainer = document.getElementById('ninContainer');
+        const ninInput = document.getElementById('ninNumber');
+
+        // Hide NIN initially
+        ninContainer.style.display = 'none';
+
+        // Auto-fill current datetime
+        const now = new Date();
+        document.getElementById('arrivalTime').value = now.toISOString().slice(0,16);
+
+        vehicleTypeSelect.addEventListener('change', function() {
+          if (this.value === 'Boda-boda') {
+            ninContainer.style.display = 'block';
+            ninInput.setAttribute('required', 'required');
+          } else {
+            ninContainer.style.display = 'none';
+            ninInput.removeAttribute('required');
+            ninInput.value = '';
+          }
+        });
+      });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

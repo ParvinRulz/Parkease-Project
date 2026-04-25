@@ -1,0 +1,78 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Batteries Page
+
+    // Bootstrap
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB' crossorigin='anonymous')
+
+    style.
+      body {
+        background-color: #f8fafc;
+      }
+      .custom-navbar {
+        background-color: #0f172a !important;
+      }
+      .custom-navbar .nav-link,
+      .custom-navbar .navbar-brand {
+        color: white !important;
+      }
+      .custom-navbar .nav-link.active {
+        font-weight: bold;
+      }
+
+  body
+
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.custom-navbar
+      .container-fluid
+        a.navbar-brand(href='#') Batteries
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link.active(href='#') Manager
+            li.nav-item
+              a.nav-link(href='#') Attendant
+            li.nav-item
+              a.nav-link(href='#') Admin
+            li.nav-item
+              a.nav-link(href='#') Cars
+            li.nav-item
+              a.nav-link(href='#') Users
+
+    // MAIN CONTENT
+    .container.mt-5
+
+      // CARD SUMMARY
+      .row.mb-4
+        .col-md-4
+          .card.shadow-sm.p-4.text-center
+            h5.mb-2 BATTERY REPORTS
+            h2.text-primary 3
+
+      // TABLE
+      .card.shadow-sm
+        .card-body
+          .table-responsive
+            table.table.table-hover.align-middle
+              thead.table-light
+                tr
+                  th Battery Image
+                  th Battery Type
+                  th Battery Size
+
+              tbody
+                if batteries.length
+                  each battery in batteries
+                    tr
+                      td
+                        img.rounded(src='/' + battery.batteryImage alt='Battery image' width='120' height='100')
+                      td #{battery.batteryType}
+                      td #{battery.batterySize}
+                else
+                  tr
+                    td.text-center.py-4.text-muted(colspan='3') No batteries found.
