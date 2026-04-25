@@ -1,0 +1,142 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Attendant Dashboard
+
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+
+    style.
+      .dark-nav {
+        background-color: #0f172a !important;
+      }
+
+      .card-soft {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      }
+
+  body.d-flex.flex-column.min-vh-100
+
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.navbar-dark.dark-nav.px-4
+      a.navbar-brand.fw-bold(href='/attendant') ParkVille
+
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navMenu')
+        span.navbar-toggler-icon
+
+      #navMenu.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto
+          li.nav-item
+            a.nav-link(href='/attendant') Dashboard
+          li.nav-item
+            a.nav-link(href='/registerVehicle') Register Arrival
+          li.nav-item
+            a.nav-link(href='/signout') Vehicle Sign Out
+
+    // MAIN CONTENT
+    .container.py-4.flex-grow-1
+
+      // TOP BAR
+      .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3
+        input.form-control.w-50(type='text' placeholder='Search vehicle, receipt or plate number...' name='search')
+
+        .fw-semibold.text-muted
+          | SHIFT: 08:00 AM - 04:00 PM
+
+      // STATS (DYNAMIC READY)
+      .row.g-4.mb-4
+
+        .col-md-4
+          .card.card-soft.p-3.text-center
+            h6.text-muted Vehicles Parked
+            h3.fw-bold= parkedVehicles || 0
+
+        .col-md-4
+          .card.card-soft.p-3.text-center
+            h6.text-muted Today's Revenue
+            h3.fw-bold UGX #{todayRevenue ? todayRevenue.toLocaleString() : 0}
+
+        .col-md-4
+          .card.card-soft.p-3.text-center
+            h6.text-muted Available Slots
+            h3.fw-bold= availableSlots || 0
+
+      // QUICK ACTIONS (REAL ATTENDANT WORKFLOW)
+      .mb-4
+        h5.mb-3 Quick Actions
+
+        .d-flex.gap-3.flex-wrap
+          a.btn.btn-warning(href='/registerVehicle')
+            | Register Arrival
+
+          a.btn.btn-dark(href='/signout')
+            | Vehicle Sign Out
+
+          a.btn.btn-secondary(href='/receipt/print')
+            | Print Receipt
+
+      // TABLE
+      .card.card-soft
+        .table-responsive
+          table.table.table-hover.align-middle.mb-0
+
+            thead.table-light
+              tr
+                th Vehicle Image
+                th Driver
+                th Phone
+                th Type
+                th Plate
+                th Model
+                th Color
+                th Arrival Date
+                th Arrival Time
+                th Status
+                th Receipt
+                th Action
+
+            tbody
+              if cars && cars.length > 0
+                each car in cars
+                  tr
+                    td
+                      img(
+                        src='/' + car.vehicleImage
+                        width='70'
+                        height='70'
+                        style='object-fit:cover; border-radius:8px;'
+                      )
+
+                    td= car.driverName
+                    td= car.phoneNumber
+                    td= car.vehicleType
+                    td= car.numberPlate
+                    td= car.vehicleModel
+                    td= car.vehicleColor
+                    td= car.arrivalDate
+                    td= car.arrivalTime
+
+                    td
+                      span.badge.bg-success= car.status
+
+                    td= car.receiptNumber
+
+                    td
+                      button.btn.btn-sm.btn-outline-primary(
+                        onclick=`navigator.clipboard.writeText('${car.receiptNumber}'); alert('Copied ${car.receiptNumber}')`
+                      )
+                        | Copy
+
+              else
+                tr
+                  td.text-center.py-4.text-muted(colspan='12')
+                    | No vehicles found
+
+    // FOOTER
+    footer.dark-nav.text-white.text-center.py-3.mt-auto
+      small © 2026 ParkVille Attendant System
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
