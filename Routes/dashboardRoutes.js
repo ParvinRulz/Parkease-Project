@@ -18,12 +18,13 @@ router.get(
 router.get(
   "/attendantDashboard",
   /*isParkingAttendant,*/ async (req, res) => {
-    let activities = await Activities.find().sort({$natural:-1})
-    console.log(activities)
+    let activity = await Activity.find().sort({$natural:-1})
+    const recentActivity = await RecentActivity.find().sort({$natural:-1})
+    console.log(activity)
     res.render("attendantDashboard", {
       cars: [],
-      activities,
-      recentactivities
+      activity,
+      recentActivity
     });
   },
 );

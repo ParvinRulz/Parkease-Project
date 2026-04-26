@@ -1,9 +1,8 @@
 const express = require("express");
-
 const router = express.Router();
 
 // Import files
-const Transaction = require("../Models/Activity");
+const Activity = require("../Models/Activity");
 
 
 router.get("/activity", (req, res) => {

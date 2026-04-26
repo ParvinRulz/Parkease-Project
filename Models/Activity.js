@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const activitySchema = new mongoose.Schema({
+const activity = new mongoose.Schema({
   registeredToday: {
     type: Number,
     default: 0

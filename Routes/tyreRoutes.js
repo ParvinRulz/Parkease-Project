@@ -7,8 +7,8 @@ router.get("/tyre", (req, res) => {
     res.render("tyreClinic");
 });
 router.post("/tyreServices", async (req, res) => {
-  console.log("reached here");
   try {
+    console.log("req",req);
     const newTyre = new Tyre(req.body);
     console.log(newTyre);
     await newTyre.save();

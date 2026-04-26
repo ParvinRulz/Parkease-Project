@@ -32,108 +32,85 @@ html
           li.nav-item
             a.nav-link(href='/attendant') Dashboard
           li.nav-item
-            a.nav-link(href='/registerVehicle') Register Arrival
+            a.nav-link(href='/registerVehicle') Register
           li.nav-item
-            a.nav-link(href='/signout') Vehicle Sign Out
+            a.nav-link(href='/signout') Sign Out
 
     // MAIN CONTENT
     .container.py-4.flex-grow-1
 
-      // TOP BAR
-      .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3
-        input.form-control.w-50(type='text' placeholder='Search vehicle, receipt or plate number...' name='search')
+      // HEADER
+      .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-2
+        h4.fw-bold.mb-0 Attendant Dashboard
+        span.text-muted SHIFT: 08:00 AM - 04:00 PM
 
-        .fw-semibold.text-muted
-          | SHIFT: 08:00 AM - 04:00 PM
-
-      // STATS (DYNAMIC READY)
+      // SUMMARY CARDS (FROM ALL PAGES)
       .row.g-4.mb-4
 
-        .col-md-4
+        .col-md-3
+          .card.card-soft.p-3.text-center
+            h6.text-muted Registered Today
+            h3.fw-bold= todayRegistrationsCount || 0
+
+        .col-md-3
           .card.card-soft.p-3.text-center
             h6.text-muted Vehicles Parked
             h3.fw-bold= parkedVehicles || 0
 
-        .col-md-4
+        .col-md-3
           .card.card-soft.p-3.text-center
-            h6.text-muted Today's Revenue
+            h6.text-muted Signed Out Today
+            h3.fw-bold= signedOutCount || 0
+
+        .col-md-3
+          .card.card-soft.p-3.text-center
+            h6.text-muted Revenue Today
             h3.fw-bold UGX #{todayRevenue ? todayRevenue.toLocaleString() : 0}
 
-        .col-md-4
-          .card.card-soft.p-3.text-center
-            h6.text-muted Available Slots
-            h3.fw-bold= availableSlots || 0
-
-      // QUICK ACTIONS (REAL ATTENDANT WORKFLOW)
+      // QUICK ACTIONS
       .mb-4
         h5.mb-3 Quick Actions
+        .row.g-3
+          .col-md-4
+            a.btn.btn-warning.w-100(href='/registerVehicle') Register Vehicle
+          .col-md-4
+            a.btn.btn-dark.w-100(href='/signout') Sign Out Vehicle
+          .col-md-4
+            a.btn.btn-secondary.w-100(href='/receipt/print') Print Receipt
 
-        .d-flex.gap-3.flex-wrap
-          a.btn.btn-warning(href='/registerVehicle')
-            | Register Arrival
-
-          a.btn.btn-dark(href='/signout')
-            | Vehicle Sign Out
-
-          a.btn.btn-secondary(href='/receipt/print')
-            | Print Receipt
-
-      // TABLE
+      // RECENT ACTIVITY (COMBINED SUMMARY)
       .card.card-soft
-        .table-responsive
-          table.table.table-hover.align-middle.mb-0
+        .card-body
+          h5.mb-3 Recent Activity
 
-            thead.table-light
-              tr
-                th Vehicle Image
-                th Driver
-                th Phone
-                th Type
-                th Plate
-                th Model
-                th Color
-                th Arrival Date
-                th Arrival Time
-                th Status
-                th Receipt
-                th Action
-
-            tbody
-              if cars && cars.length > 0
-                each car in cars
-                  tr
-                    td
-                      img(
-                        src='/' + car.vehicleImage
-                        width='70'
-                        height='70'
-                        style='object-fit:cover; border-radius:8px;'
-                      )
-
-                    td= car.driverName
-                    td= car.phoneNumber
-                    td= car.vehicleType
-                    td= car.numberPlate
-                    td= car.vehicleModel
-                    td= car.vehicleColor
-                    td= car.arrivalDate
-                    td= car.arrivalTime
-
-                    td
-                      span.badge.bg-success= car.status
-
-                    td= car.receiptNumber
-
-                    td
-                      button.btn.btn-sm.btn-outline-primary(
-                        onclick=`navigator.clipboard.writeText('${car.receiptNumber}'); alert('Copied ${car.receiptNumber}')`
-                      )
-                        | Copy
-
-              else
+          .table-responsive
+            table.table.table-hover.align-middle
+              thead.table-light
                 tr
-                  td.text-center.py-4.text-muted(colspan='12')
-                    | No vehicles found
+                  th Plate
+                  th Driver
+                  th Action
+                  th Time
+
+              tbody
+                if recentCars && recentCars.length > 0
+                  each car in recentCars
+                    tr
+                      td.fw-semibold= car.numberPlate
+                      td= car.driverName
+
+                      td
+                        if car.status === 'In'
+                          span.badge.bg-success Arrived
+                        else if car.status === 'Out'
+                          span.badge.bg-secondary Signed Out
+                        else
+                          span.badge.bg-warning Pending
+
+                      td= car.arrivalTime
+                else
+                  tr
+                    td.text-center.text-muted(colspan='4') No activity found
 
     // FOOTER
     footer.dark-nav.text-white.text-center.py-3.mt-auto
