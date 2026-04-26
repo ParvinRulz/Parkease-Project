@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// Import files
+// Import model files
 const Transaction = require("../Models/Transaction");
 
 

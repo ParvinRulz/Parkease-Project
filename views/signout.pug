@@ -1,22 +1,24 @@
-extends layout
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Vehicle Signout
 
-block content
-  // Page-specific styling ONLY
-  style.
-    /* Turn ONLY existing navbar dark blue */
-    .navbar {
-      background-color: #0f172a !important;
-    }
+    // Bootstrap CSS
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
 
-    .navbar .nav-link,
-    .navbar .navbar-brand {
-      color: #fff !important;
-    }
+    style.
+      body {
+        background: linear-gradient(to right, #f8fafc, #e2e8f0);
+      }
 
-    .navbar .nav-link.active {
-      font-weight: bold;
-    }
-    .yellow-btn {
+      .card-soft {
+        border-radius: 20px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      }
+
+      .yellow-btn {
         background-color: #ffc107 !important;
         color: #000 !important;
         border: none !important;
@@ -27,23 +29,47 @@ block content
         color: #000 !important;
       }
 
-  .container.min-vh-100.d-flex.justify-content-center.align-items-center
-    .card.shadow-lg.border-0.rounded-4(style='width: 100%; max-width: 450px;')
-      .card-body.p-5
-        img(src='/Images/logo.png' alt='ParkVille Logo' style='width: 80px;')
-        h2.text-center.fw-bold.mb-2 Vehicle Signout
-        p.text-center.text-muted.mb-4 Please enter your receipt to process your signout
+      .form-control {
+        border-radius: 10px;
+        padding: 10px;
+      }
 
-        form(method='post' action='/signout/verify')
-          .mb-3
-            label.form-label.fw-semibold(for='receiptNumber') Receipt Number
-            input#receiptNumber.form-control(
-              type='text'
-              placeholder='e.g RCPT-abcd123'
-              name='receiptNumber'
-            )
+      .form-control:focus {
+        box-shadow: 0 0 0 2px rgba(255,193,7,0.3);
+        border-color: #ffc107;
+      }
 
-          button.btn.yellow-btn.w-100.py-2.fw-bold.rounded-3(type='submit')
-            | Verify Receipt
+  body
+
+    .container.min-vh-100.d-flex.align-items-center.justify-content-center
+
+      // MAIN CARD
+      .row.shadow-lg.bg-white.overflow-hidden.card-soft(style='max-width: 850px; width:100%;')
+
+        // LEFT SIDE
+        .col-md-5.d-none.d-md-flex.flex-column.justify-content-center.align-items-center.text-center.p-4(style='background-color:#0f172a; color:white;')
+          img(src='/Images/logo.png' style='width:70px;')
+          h4.mt-3.fw-bold Vehicle Signout
+          p.small.mt-2 Please enter your receipt to process your signout.
+
+        // RIGHT SIDE
+        .col-md-7.p-4.p-md-5
+
+          form(method='post' action='/signout/verify')
+
+            .mb-3.text-start
+              label.form-label.fw-semibold(for='receiptNumber') Receipt Number
+              input#receiptNumber.form-control(
+                type='text'
+                name='receiptNumber'
+                placeholder='e.g RCPT-abcd123'
+              )
+
+            button.btn.yellow-btn.w-100.py-2.fw-bold.rounded-3(type='submit')
+              | Verify Receipt
+
+    // FOOTER
+    footer.text-center.py-3.mt-4(style='position:absolute; bottom:10px; width:100%; color:#0f172a;')
+      small © Parvin 2026 ParkVille System
 
   script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

@@ -1,13 +1,12 @@
 const express = require("express");
-
 const router = express.Router();
 
-// Import files
+// Import model files
 const RecentActivity = require("../Models/RecentActivity");
 
 
 router.get("/recentActivity", (req, res) => {
-    //let transactions = await Transaction.find({status:"Parked"}).sort({$natural:-1})
+    //let recentActivity = await RecentActivity.find({status:"Parked"}).sort({$natural:-1})
     res.render("recentActivity");
 });
 
