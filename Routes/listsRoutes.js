@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const multer = require('multer');
 
 //Import model files
 const Registration = require("../Models/Registration");

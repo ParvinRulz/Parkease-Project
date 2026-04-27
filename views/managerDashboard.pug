@@ -60,22 +60,22 @@ html(lang='en')
 
     .container.mt-4
 
-      // DASHBOARD CARDS
-      .row.g-4.mb-4
-        .col-md-4
-          .card.card-soft.card-dark.p-3.text-center
-            h5 Total Parking Slots
-            h2= totalSlots
+      //- // DASHBOARD CARDS
+      //- .row.g-4.mb-4
+      //-   .col-md-4
+      //-     .card.card-soft.card-dark.p-3.text-center
+      //-       h5 Total Parking Slots
+      //-       h2= totalSlots
 
-        .col-md-4
-          .card.card-soft.bg-white.p-3.text-center
-            h5 Occupied Slots
-            h2.text-dark= occupiedSlots
+      //-   .col-md-4
+      //-     .card.card-soft.bg-white.p-3.text-center
+      //-       h5 Occupied Slots
+      //-       h2.text-dark= occupiedSlots
 
-        .col-md-4
-          .card.card-soft.card-yellow.p-3.text-center
-            h5 Today's Revenue
-            h2= todaysRevenue
+      //-   .col-md-4
+      //-     .card.card-soft.card-yellow.p-3.text-center
+      //-       h5 Today's Revenue
+      //-       h2= todaysRevenue
 
       // RECENT PARKING ACTIVITY
       .card.card-soft.mb-4
@@ -131,21 +131,21 @@ html(lang='en')
                   td= transaction.amount
                   td= transaction.transactionDate
 
-      // PRICING SECTION
-      .card.card-soft.mb-4
-        .card-body
-          h5.mb-3 Service Pricing
-          a.btn.btn-warning(href='/pricing') Set Prices for Tyres & Batteries
-          table.table.mt-3
-            thead
-              tr
-                th Item
-                th Price
-            tbody
-              each price in pricing
-                tr
-                  td= price.item
-                  td= price.amount
+      //- // PRICING SECTION
+      //- .card.card-soft.mb-4
+      //-   .card-body
+      //-     h5.mb-3 Service Pricing
+      //-     a.btn.btn-warning(href='/pricing') Set Prices for Tyres & Batteries
+      //-     table.table.mt-3
+      //-       thead
+      //-         tr
+      //-           th Item
+      //-           th Price
+      //-       tbody
+      //-         each price in pricing
+      //-           tr
+      //-             td= price.item
+      //-             td= price.amount
 
     // FOOTER
     footer.footer.dark-blue.text-center.p-3.mt-4

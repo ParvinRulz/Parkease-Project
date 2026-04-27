@@ -60,22 +60,22 @@ html
         .col-md-3
           .card.card-soft.p-3.text-center
             h6.text-muted Registered Today
-            h3.fw-bold= todayRegistrationsCount || 0
+            h3.fw-bold= activity[0].registeredToday || 0
 
         .col-md-3
           .card.card-soft.p-3.text-center
             h6.text-muted Vehicles Parked
-            h3.fw-bold= parkedVehicles || 0
+            h3.fw-bold= activity[0].vehiclesParked || 0
 
         .col-md-3
           .card.card-soft.p-3.text-center
             h6.text-muted Signed Out Today
-            h3.fw-bold= signedOutCount || 0
+            h3.fw-bold= activity[0].signedOutToday || 0
 
         .col-md-3
           .card.card-soft.p-3.text-center
             h6.text-muted Revenue Today
-            h3.fw-bold UGX #{todayRevenue ? todayRevenue.toLocaleString() : 0}
+            h3.fw-bold= activity[0].revenueToday || 0
 
       // QUICK ACTIONS
       .mb-4
@@ -103,21 +103,16 @@ html
                   th Time
 
               tbody
-                if recentCars && recentCars.length > 0
-                  each car in recentCars
+                if recentActivity && recentActivity.length > 0
+                  each recent in recentActivity
                     tr
-                      td.fw-semibold= car.numberPlate
-                      td= car.driverName
+                      td.fw-semibold= recent.plate
+                      td= recent.driver
 
-                      td
-                        if car.status === 'In'
-                          span.badge.bg-success Arrived
-                        else if car.status === 'Out'
-                          span.badge.bg-secondary Signed Out
-                        else
-                          span.badge.bg-warning Pending
+                      td= recent.action
+                        
 
-                      td= car.arrivalTime
+                      td= recent.arrivalTime
                 else
                   tr
                     td.text-center.text-muted(colspan='4') No activity found
