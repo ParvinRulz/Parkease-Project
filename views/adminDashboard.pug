@@ -5,106 +5,101 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     title System Admin Dashboard
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet')
-  style.
-    .dark-header {
-      background-color: #0f172a;
-    }
-    .dark-text {
-      color: #0f172a;
-    }
-    .card-soft {
-      border: none;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
 
-  // NAVBAR (assumes layout allows override styling)
-  nav.navbar.navbar-expand-lg.dark-header.navbar-dark
-    .container
-      a.navbar-brand.fw-bold(href='#') System Admin Dashboard
+    style.
+      .dark-blue {
+        background-color: #0f172a !important;
+      }
+      .dark-blue a,
+      .dark-blue .navbar-brand,
+      .dark-blue p {
+        color: #fff !important;
+      }
+      .dark-text {
+        color: #0f172a;
+      }
+      .card-soft {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      }
+      .yellow-bg {
+        background-color: #facc15;
+      }
 
-  .container.py-5
+  body.d-flex.flex-column.min-vh-100
 
-    // HEADER + FILTER
-    .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3.border-bottom.pb-3
-      .d-flex.flex-column
-        h2.fw-bold.mb-1.dark-text System Admin Dashboard
-        p.text-muted.mb-0 Daily Revenue & Vehicle Sign-Out Report
+    // NAVBAR
+    nav.navbar.navbar-expand-lg.dark-blue
+      .container
+        a.navbar-brand.fw-bold(href='#') System Admin Dashboard
 
-      form.d-flex.align-items-center(action="/adminDashboard" method="GET")
-        label.me-2.fw-semibold(for="dateFilter") Filter by Day:
-        input.form-control.me-2#dateFilter(type="date" name="date" value=selectedDate)
-        button.btn(style="background-color:#0f172a; color:white;" type="submit")
-          | Filter
+    // MAIN CONTENT
+    .container.py-5.flex-grow-1
 
-    // REVENUE CARDS
-    .row.g-4.mb-5
+      // HEADER + FILTER
+      .d-flex.justify-content-between.align-items-center.mb-4.flex-wrap.gap-3.border-bottom.pb-3
+        .d-flex.flex-column
+          h2.fw-bold.mb-1.dark-text System Admin Dashboard
+          p.text-muted.mb-0 Daily Revenue & Oversight Management Report
 
-      // PARKING
-      .col-md-4
-        .card.card-soft.h-100
-          .card-body.p-4
-            h6.text-muted.fw-semibold PARKING REVENUE
-            h3.fw-bold.dark-text.mt-2 UGX #{parkingRevenue ? parkingRevenue.toLocaleString() : 0}
-            p.text-muted.small.mb-0 Total parking fees collected today
+        form.d-flex.align-items-center(action="/adminDashboard" method="GET")
+          label.me-2.fw-semibold(for="dateFilter") Filter by Day:
+          input.form-control.me-2#dateFilter(type="date" name="date" value=selectedDate)
+          button.btn.yellow-bg.fw-semibold(type="submit") Filter
 
-      // TYRE (changed from green to neutral/blue-grey)
-      .col-md-4
-        .card.card-soft.h-100(style="background:#f1f5f9;")
-          .card-body.p-4
-            h6.text-muted.fw-semibold TYRE CLINIC REVENUE
-            h3.fw-bold.dark-text.mt-2 UGX #{tyreRevenue ? tyreRevenue.toLocaleString() : 0}
-            p.text-muted.small.mb-0 Total tyre services & sales today
+      // REVENUE CARDS
+      .row.g-4.mb-5
 
-      // BATTERY
-      .col-md-4
-        .card.card-soft.h-100(style="background:#fff7ed;")
-          .card-body.p-4
-            h6.text-muted.fw-semibold BATTERY REVENUE
-            h3.fw-bold.dark-text.mt-2 UGX #{batteryRevenue ? batteryRevenue.toLocaleString() : 0}
-            p.text-muted.small.mb-0 Total battery hire & sales today
+        .col-md-4
+          .card.card-soft.text-white(style="background:#0f172a;")
+            .card-body.p-4
+              h6.text-white-50.fw-semibold PARKING REVENUE
+              h3.fw-bold.mt-2 UGX #{parkingRevenue ? parkingRevenue.toLocaleString() : 0}
+              p.text-white-50.small.mb-0 Total parking fees collected today
 
-    // TABLE SECTION
-    .card.card-soft
-      .card-header.bg-white.py-3.border-bottom
-        h5.mb-0.fw-bold.dark-text
-          | Signed-Out Vehicles for #{selectedDate}
+        .col-md-4
+          .card.card-soft.bg-white
+            .card-body.p-4
+              h6.text-muted.fw-semibold TYRE CLINIC REVENUE
+              h3.fw-bold.dark-text.mt-2 UGX #{tyreRevenue ? tyreRevenue.toLocaleString() : 0}
+              p.text-muted.small.mb-0 Total tyre services & sales today
 
-      .card-body.p-0
-        .table-responsive
-          table.table.table-hover.mb-0.align-middle
-            thead(style="background:#f8fafc;")
-              tr
-                th.p-3 Receipt No.
-                th Receiver Name
-                th Vehicle Plate
-                th Sign-Out Time
-                th Amount Paid
+        .col-md-4
+          .card.card-soft.yellow-bg
+            .card-body.p-4
+              h6.fw-semibold BATTERY REVENUE
+              h3.fw-bold.mt-2 UGX #{batteryRevenue ? batteryRevenue.toLocaleString() : 0}
+              p.small.mb-0 Total battery hire & sales today
 
-            tbody
-              if signedOutVehicles && signedOutVehicles.length > 0
-                each record in signedOutVehicles
-                  tr
-                    td.p-3.fw-semibold.dark-text= record.receiptNumber
-                    td= record.receiverName
+      // USERS TABLE
+      .card.card-soft
+        .card-header.bg-white.py-3.border-bottom
+          h5.mb-0.fw-bold.dark-text Signed-In Users
 
-                    td
-                      if record.vehicleId
-                        span.badge(style="background:#0f172a;")= record.vehicleId.numberPlate
-                      else
-                        span.text-muted N/A
-
-                    td= new Date(record.signoutDate).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})
-
-                    td.fw-bold.text-success UGX #{record.amountPaid.toLocaleString()}
-
-              else
+        .card-body.p-0
+          .table-responsive
+            table.table.table-hover.mb-0.align-middle
+              thead(style="background:#f8fafc;")
                 tr
-                  td.text-center.py-5.text-muted(colspan="5")
-                    | No vehicles were signed out on this date.
+                  th.p-3 Image
+                  th Name
+                  th Role
 
-  // FOOTER
-  footer.dark-header.text-white.text-center.py-3.mt-5
-    p.mb-0 SYSTEM ADMIN CONTROL PANEL
-    p © 2026 Parvin 2026 ParkVille Smart Systems
-  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js')
+              tbody
+                each user in users
+                  tr
+                    td.p-3
+                      if user.image
+                        img.rounded(src='/' + user.image alt='User image' width='80' height='70')
+                      else
+                        span.text-muted No image
+                    td.fw-semibold.dark-text= user.name
+                    td= user.role
+
+    // FOOTER (STICKS TO BOTTOM)
+    footer.footer.dark-blue.text-center.p-3.mt-auto
+      p SYSTEM ADMIN CONTROL PANEL
+      p © 2026 Parvin 2026 ParkVille Smart Systems
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js')

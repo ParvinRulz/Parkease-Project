@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title System Oversights
+
+    // Bootstrap CSS
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+    style.
+      body {
+        background: linear-gradient(to right, #f8fafc, #e2e8f0);
+      }
+
+      .dark-blue {
+        color: #0f172a;
+      }
+
+      .link-yellow {
+        color: #0f172a !important;
+        text-decoration: none;
+      }
+
+      .login-card {
+        border-radius: 20px;
+      }
+
+      .form-control {
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .form-control:focus {
+        box-shadow: 0 0 0 2px rgba(255,193,7,0.3);
+        border-color: #ffc107;
+      }
+
+      .btn-warning {
+        background-color: #ffc107 !important;
+        border: none;
+      }
+
+      .btn-warning:hover {
+        background-color: #e0a800 !important;
+      }
+
+
+  body
+  .container.min-vh-100.d-flex.align-items-center.justify-content-center
+
+      .row.shadow-lg.bg-white.overflow-hidden(style='max-width: 850px; width:100%; border-radius:20px;')
+
+        // LEFT SIDE (branding / info)
+        .col-md-5.d-none.d-md-flex.flex-column.justify-content-center.align-items-center.text-center.p-4(style='background-color:#0f172a; color:white;')
+          img(src='/Images/logo.png' style='width:70px;')
+          h4.mt-3.fw-bold Oversights
+          p.small.mt-2
+            | Different System oversights of the day.
+
+        // RIGHT SIDE (form)
+        .col-md-7.p-4.p-md-5
+          form(method='post' action='/add-oversight')
+                .mb-4
+                  label.form-label.fw-semibold(for='parkingRevenue') Parking Revenue
+                  input#parkingRevenue.form-control(type='number' name='parkingRevenue')
+
+                  label.form-label.fw-semibold(for='tyreClinicRevenue') Tyre Clinic Revenue
+                  input#tyreClinicRevenue.form-control(type='number' name='tyreClinicRevenue')
+
+                  label.form-label.fw-semibold(for='batteryRevenue') Battery Revenue
+                  input#batteryRevenue.form-control(type='number' name='batteryRevenue')
+
+                button.btn.w-100.py-2.fw-bold.rounded-3(
+                  type='submit'
+                  style='background-color: #facc15; border: none;'
+                ) Add Oversight
+      // FOOTER
+      footer.text-center.py-3.mt-4(style='position:absolute; bottom:10px; width:100%; color:#0f172a;')
+        small © Parvin 2026 ParkVille System
+
+      // Bootstrap JS
+      script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

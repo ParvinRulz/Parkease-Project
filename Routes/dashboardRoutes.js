@@ -1,30 +1,34 @@
 const express = require("express");
-// const router = express.Router();
-
 const router = express.Router();
 // const { isSystemAdmin, isParkingAttendant, isSectionManager } = require("../middleware/auth");
 
 const Transaction = require("../Models/Transaction");
 const Activity = require("../Models/Activity");
 const RecentActivity = require("../Models/RecentActivity");
+const Oversight = require("../Models/Oversight");
 
 router.get(
   "/adminDashboard",
-  /*isSystemAdmin,*/ (req, res) => {
-    res.render("adminDashboard");
+  /*isSystemAdmin,*/ async (req, res) => {
+    let oversight = await Oversight.find().sort({ $natural: -1 });
+    console.log(oversight);
+    res.render("adminDashboard", {
+      users: [],
+      oversight,
+    });
   },
 );
 
 router.get(
   "/attendantDashboard",
   /*isParkingAttendant,*/ async (req, res) => {
-    let activity = await Activity.find().sort({$natural:-1})
-    const recentActivity = await RecentActivity.find().sort({$natural:-1})
-    console.log(activity)
+    let activity = await Activity.find().sort({ $natural: -1 });
+    const recentActivity = await RecentActivity.find().sort({ $natural: -1 });
+    console.log(activity);
     res.render("attendantDashboard", {
       cars: [],
       activity,
-      recentActivity
+      recentActivity,
     });
   },
 );
@@ -32,14 +36,14 @@ router.get(
 router.get(
   "/managerDashboard",
   /*isSectionManager,*/ async (req, res) => {
-    let transactions = await Transaction.find().sort({$natural:-1})
-    console.log(transactions)
+    let transactions = await Transaction.find().sort({ $natural: -1 });
+    console.log(transactions);
     res.render("managerDashboard", {
       parkingActivities: [],
       services: [],
       pricing: [],
-      transactions
-  });
+      transactions,
+    });
   },
 );
 

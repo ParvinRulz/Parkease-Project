@@ -18,6 +18,16 @@ html
         box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       }
 
+      .btn-dark-custom {
+        background-color: #0f172a;
+        color: #fff;
+      }
+
+      .btn-dark-custom:hover {
+        background-color: #020617;
+        color: #fff;
+      }
+
   body.d-flex.flex-column.min-vh-100
 
     // NAVBAR
@@ -44,7 +54,7 @@ html
         h4.fw-bold.mb-0 Parking Attendant Dashboard
         span.text-muted SHIFT: 06:00 AM - 06:59 PM
 
-      // SUMMARY CARDS (FROM ALL PAGES)
+      // SUMMARY CARDS
       .row.g-4.mb-4
 
         .col-md-3
@@ -72,13 +82,13 @@ html
         h5.mb-3 Quick Actions
         .row.g-3
           .col-md-4
-            a.btn.btn-warning.w-100(href='/registerVehicle') Register Vehicle
+            a.btn.btn-dark-custom.w-100(href='/registerVehicle') Register Vehicle
           .col-md-4
-            a.btn.btn-dark.w-100(href='/signout') Sign Out Vehicle
+            a.btn.btn-warning.w-100(href='/signout') Sign Out Vehicle
           .col-md-4
             a.btn.btn-secondary.w-100(href='/receipt/print') Print Receipt
 
-      // RECENT ACTIVITY (COMBINED SUMMARY)
+      // RECENT ACTIVITY
       .card.card-soft
         .card-body
           h5.mb-3 Recent Activity

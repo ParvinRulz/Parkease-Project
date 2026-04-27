@@ -16,6 +16,31 @@ html(lang='en')
         color: #fff !important;
       }
 
+      .card-soft {
+        border: none;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      }
+
+      .card-dark {
+        background-color: #0f172a;
+        color: #fff;
+      }
+
+      .card-yellow {
+        background-color: #facc15;
+      }
+
+      .btn-dark-custom {
+        background-color: #0f172a;
+        color: #fff;
+      }
+
+      .btn-dark-custom:hover {
+        background-color: #020617;
+        color: #fff;
+      }
+
   body
 
     // NAVBAR
@@ -35,25 +60,25 @@ html(lang='en')
 
     .container.mt-4
 
-      // DASHBOARD CARDS (DYNAMIC VALUES)
+      // DASHBOARD CARDS
       .row.g-4.mb-4
         .col-md-4
-          .card.shadow.p-3.text-center
+          .card.card-soft.card-dark.p-3.text-center
             h5 Total Parking Slots
-            h2.text-primary= totalSlots
+            h2= totalSlots
 
         .col-md-4
-          .card.shadow.p-3.text-center
+          .card.card-soft.bg-white.p-3.text-center
             h5 Occupied Slots
-            h2.text-danger= occupiedSlots
+            h2.text-dark= occupiedSlots
 
         .col-md-4
-          .card.shadow.p-3.text-center
+          .card.card-soft.card-yellow.p-3.text-center
             h5 Today's Revenue
-            h2.text-success= todaysRevenue
+            h2= todaysRevenue
 
       // RECENT PARKING ACTIVITY
-      .card.shadow.mb-4
+      .card.card-soft.mb-4
         .card-body
           h5.mb-3 Recent Parking Activity
           table.table
@@ -76,21 +101,21 @@ html(lang='en')
                     td= activity.duration
                     td= activity.fee
               else 
-                  tr
-                    td(colspan="6") No parking activity available
+                tr
+                  td(colspan="6") No parking activity available
 
-      // DAILY TOTAL (SEPARATE — NOT INSIDE TABLE)
+      // DAILY TOTAL
       .row.mb-4
         .col-md-4
-          .card.shadow.p-3.text-center
+          .card.card-soft.p-3.text-center
             span DAILY GRAND TOTAL :
             h2= dailyTotal
 
-      // SERVICE TRANSACTIONS SECTION
-      .card.shadow.mb-4
+      // SERVICE TRANSACTIONS
+      .card.card-soft.mb-4
         .card-body
           h5.mb-3 Service Transactions
-          a.btn.btn-primary(href='/transactions/new') Record New Transaction
+          a.btn.btn-dark-custom(href='/transactions/new') Record New Transaction
           table.table.mt-3
             thead
               tr
@@ -107,7 +132,7 @@ html(lang='en')
                   td= transaction.transactionDate
 
       // PRICING SECTION
-      .card.shadow.mb-4
+      .card.card-soft.mb-4
         .card-body
           h5.mb-3 Service Pricing
           a.btn.btn-warning(href='/pricing') Set Prices for Tyres & Batteries

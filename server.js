@@ -14,7 +14,6 @@ const indexRoutes = require("./Routes/indexRoutes");
 const authRoutes = require("./Routes/authRoutes");
 const vehicleRoutes = require("./Routes/vehicleRoutes");
 const dashboardRoutes = require("./Routes/dashboardRoutes");
-const receiptRoutes = require("./Routes/receiptRoutes");
 const batteryRoutes = require("./Routes/batteryRoutes");
 const listsRoutes = require("./Routes/listsRoutes");
 const tyreRoutes = require("./Routes/tyreRoutes");
@@ -22,6 +21,8 @@ const signoutRoutes = require("./Routes/signoutRoutes");
 const transactionRoutes = require("./Routes/transactionRoutes");
 const activityRoutes = require("./Routes/activityRoutes");
 const recentActivityRoutes = require("./Routes/recentActivityRoutes");
+const oversightRoutes = require("./Routes/oversightRoutes");
+const recentOversightRoutes = require("./Routes/recentOversightRoutes");
 
 //2.Instantiations
 const app = express();
@@ -76,7 +77,6 @@ app.use("/", indexRoutes);
 app.use("/", authRoutes);
 app.use("/", vehicleRoutes);
 app.use("/", dashboardRoutes);
-app.use("/", receiptRoutes);
 app.use("/", batteryRoutes);
 app.use("/", listsRoutes);
 app.use("/", tyreRoutes);
@@ -84,6 +84,8 @@ app.use("/", signoutRoutes);
 app.use("/", transactionRoutes);
 app.use("/", activityRoutes);
 app.use("/", recentActivityRoutes);
+app.use("/", oversightRoutes);
+app.use("/", recentOversightRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 
 // This will always be the last endpoint in this file
