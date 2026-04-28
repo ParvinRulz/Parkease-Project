@@ -4,14 +4,13 @@ const router = express.Router();
 // Import files
 const Activity = require("../Models/Activity");
 
-
 router.get("/activity", (req, res) => {
-    res.render("activity");
+  res.render("activity");
 });
 
 router.post("/add-activity", async (req, res) => {
   try {
-    console.log("req",req)
+    console.log("req", req);
     const newActivity = new Activity(req.body);
     console.log(newActivity);
     await newActivity.save();

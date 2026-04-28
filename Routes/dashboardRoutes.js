@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const multer = require('multer');
-const { isSystemAdmin, isParkingAttendant, isSectionManager } = require("../middleware/auth");
+const multer = require("multer");
+const {
+  isSystemAdmin,
+  isParkingAttendant,
+  isSectionManager,
+} = require("../middleware/auth");
 
 const Transaction = require("../Models/Transaction");
 const Activity = require("../Models/Activity");

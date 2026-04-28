@@ -4,14 +4,13 @@ const router = express.Router();
 // Import files
 const Oversight = require("../Models/Oversight");
 
-
 router.get("/oversight", (req, res) => {
-    res.render("oversight");
+  res.render("oversight");
 });
 
 router.post("/add-oversight", async (req, res) => {
   try {
-    console.log("req",req)
+    console.log("req", req);
     const newOversight = new Oversight(req.body);
     console.log(newOversight);
     await newOversight.save();
