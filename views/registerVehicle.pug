@@ -64,6 +64,33 @@ html(lang='en')
       }
 
   body
+    // ================= NAVBAR =================
+    nav.navbar.navbar-expand-lg.bg-white.shadow-sm
+      .container-fluid
+
+        a.navbar-brand.fw-bold(style='color:#0f172a;' href='/login') ParkVille
+
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+          span.navbar-toggler-icon
+
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/signup") Signup
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/login") Login
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/login") Dashboard
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/users") Manage Users
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/registerVehicle") Vehicle
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/signout") Vehicle Signout
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/battery") Battery Services
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/tyre") Tyre Clinic
     .container.flex-grow-1.d-flex.align-items-center.justify-content-center.py-4
 
       .row.shadow-lg.bg-white.overflow-hidden.login-card(style='max-width: 850px; width:100%;')

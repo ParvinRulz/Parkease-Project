@@ -33,24 +33,33 @@ html(lang='en')
 
   body.d-flex.flex-column.min-vh-100
 
-    // NAVBAR
-    nav.navbar.navbar-expand-lg.custom-navbar
+    // ================= NAVBAR =================
+    nav.navbar.navbar-expand-lg.bg-white.shadow-sm
       .container-fluid
-        a.navbar-brand(href='#') Batteries
-        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNav')
+
+        a.navbar-brand.fw-bold(style='color:#0f172a;' href='/login') ParkVille
+
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
           span.navbar-toggler-icon
+
         #navbarNav.collapse.navbar-collapse
-          ul.navbar-nav.ms-auto
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
             li.nav-item
-              a.nav-link.active(href='#') Manager
+              a.nav-link(style='color:#0f172a;' href="/signup") Signup
             li.nav-item
-              a.nav-link(href='#') Attendant
+              a.nav-link(style='color:#0f172a;' href="/login") Login
             li.nav-item
-              a.nav-link(href='#') Admin
+              a.nav-link(style='color:#0f172a;' href="/login") Dashboard
             li.nav-item
-              a.nav-link(href='#') Cars
+              a.nav-link(style='color:#0f172a;' href="/users") Manage Users
             li.nav-item
-              a.nav-link(href='#') Users
+              a.nav-link(style='color:#0f172a;' href="/registerVehicle") Vehicle
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/signout") Vehicle Signout
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/battery") Battery Services
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/tyre") Tyre Clinic
 
     // MAIN CONTENT
     main.container.mt-5.flex-grow-1

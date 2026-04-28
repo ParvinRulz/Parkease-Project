@@ -22,30 +22,35 @@ html(lang="en")
       }
 
   body
-
-    // NAVBAR
-    nav.navbar.navbar-expand-lg.dark-nav.navbar-dark
+    // ================= NAVBAR =================
+    nav.navbar.navbar-expand-lg.bg-white.shadow-sm
       .container-fluid
-        a.navbar-brand.fw-bold(href='#') ParkVille
 
-        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#nav')
+        a.navbar-brand.fw-bold(style='color:#0f172a;' href='/login') ParkVille
+
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
           span.navbar-toggler-icon
 
-        #nav.collapse.navbar-collapse
+        #navbarNav.collapse.navbar-collapse
           ul.navbar-nav.me-auto.mb-2.mb-lg-0
             li.nav-item
-              a.nav-link(href='/register') Register Vehicle
+              a.nav-link(style='color:#0f172a;' href="/signup") Signup
             li.nav-item
-              a.nav-link(href='/admin') Admin
+              a.nav-link(style='color:#0f172a;' href="/login") Login
             li.nav-item
-              a.nav-link(href='/batterySection') Battery Section
+              a.nav-link(style='color:#0f172a;' href="/login") Dashboard
             li.nav-item
-              a.nav-link(href='/tyreClinic') Tyre Clinic
+              a.nav-link(style='color:#0f172a;' href="/users") Manage Users
             li.nav-item
-              a.nav-link.active(href='/dashboard') Dashboard
+              a.nav-link(style='color:#0f172a;' href="/registerVehicle") Vehicle
             li.nav-item
-              a.nav-link(href='/signOut') Check Out
+              a.nav-link(style='color:#0f172a;' href="/signout") Vehicle Signout
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/battery") Battery Services
+            li.nav-item
+              a.nav-link(style='color:#0f172a;' href="/tyre") Tyre Clinic
 
+    
           .d-flex.align-items-center.gap-3
             span.text-white.small Admin
             a.btn.btn-outline-light.btn-sm(href='/logout') Logout
