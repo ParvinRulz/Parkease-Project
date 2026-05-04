@@ -1,57 +1,26 @@
-function calculateParkingFee(vehicleType, arrivalDate) {
-  const departureDate = new Date();
-  // Calculate duration in hours
-  const durationMs = departureDate - arrivalDate;
-  const durationHours = durationMs / (1000 * 60 * 60);
+// function to calculate fee based on vehicle type and duration
+function calculateParkingFee(vehicleType, arrivalTime) {
+  const signOutTime = new Date();
+  const durationMs = signOutTime - arrivalTime;
+  const durationHrs = Math.ceil(durationMs / (1000 * 60 * 60));
+  const hour = new Date(arrivalTime).getHours();
+  const isDay = hour >= 6 && hour < 19;
+  const isShort = durationHrs < 3;
 
-  // Determine if arrival is day time (6:00am - 6:59pm) or night time (7:00pm - 5:59am)
-  const hour = arrivalDate.getHours();
-  const isDayTime = hour >= 6 && hour < 19;
-
-  // Automated fee calculation rules
-  if (durationHours < 3) {
-    switch (vehicleType) {
-      case "Truck":
-        return 2000;
-      case "Personal Car":
-        return 2000;
-      case "Taxi":
-        return 2000;
-      case "Coaster":
-        return 3000;
-      case "Boda-boda":
-        return 1000;
-    }
-  } else {
-    if (isDayTime) {
-      switch (vehicleType) {
-        case "Truck":
-          return 5000;
-        case "Personal Car":
-          return 3000;
-        case "Taxi":
-          return 3000;
-        case "Coaster":
-          return 4000;
-        case "Boda-boda":
-          return 2000;
-      }
-    } else {
-      switch (vehicleType) {
-        case "Truck":
-          return 10000;
-        case "Personal Car":
-          return 2000;
-        case "Taxi":
-          return 2000;
-        case "Coaster":
-          return 2000;
-        case "Boda-boda":
-          return 2000;
-      }
-    }
-  }
-  return 0;
+  const r = getVehicleRate(vehicleType);
+  const rate = isShort ? r.short : isDay ? r.day : r.night;
+  const fee = rate * durationHrs;
+  return  fee;
+}
+function getVehicleRate(vehicleType) {
+  const rates = {
+    Truck: { short: 2000, day: 5000, night: 10000 },
+    "Personal Car": { short: 2000, day: 3000, night: 2000 },
+    Taxi: { short: 2000, day: 3000, night: 2000 },
+    Coaster: { short: 3000, day: 4000, night: 2000 },
+    "Boda-boda": { short: 1000, day: 2000, night: 2000 },
+  };
+  return rates[vehicleType] || rates["Personal Car"];
 }
 
 module.exports = calculateParkingFee;
